@@ -1,0 +1,2 @@
+module MotorbikesHelper
+end
