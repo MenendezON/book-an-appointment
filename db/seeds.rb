@@ -12,21 +12,33 @@ Motorbike.destroy_all
 Motorbike.create!([{
   name: "Vespa",
   model: "GTS Super 300",
-  image: "https://images.piaggio.com/vespa/vehicles/nvh1000u04/nvh1r7uu04/nvh1r7uu04-01-s.png"
-  price: "123"
+  image: "https://images.piaggio.com/vespa/vehicles/nvh1000u04/nvh1r7uu04/nvh1r7uu04-01-s.png",
+  price: "123",
+  description: "With its refreshed design, the Vespa GTS Super is raring to set off on adventures with you and provide thrills aplenty. Its sporting soul comes with the latest examples of technology incorporated in new and surprising ways. There’s much more to this family than a mere change of colour, with plenty of scope for each and every proud owner to express their own style and individuality."
+},{
+  name: "Vespa",
+  model: "946 10° Anniversario",
+  image: "https://images.piaggio.com/vespa/vehicles/nva1000u14/nva1v1au14/nva1v1au14-01-s.png",
+  price: "245",
+  description: "With its refreshed design, the Vespa GTS Super is raring to set off on adventures with you and provide thrills aplenty. Its sporting soul comes with the latest examples of technology incorporated in new and surprising ways. There’s much more to this family than a mere change of colour, with plenty of scope for each and every proud owner to express their own style and individuality."
+},{
+  name: "Vespa",
+  model: "Elettrica 45",
+  image: "https://images.piaggio.com/vespa/vehicles/nve2000u00/nve2hvcu02/nve2hvcu02-01-s.png",
+  price: "245",
   description: "With its refreshed design, the Vespa GTS Super is raring to set off on adventures with you and provide thrills aplenty. Its sporting soul comes with the latest examples of technology incorporated in new and surprising ways. There’s much more to this family than a mere change of colour, with plenty of scope for each and every proud owner to express their own style and individuality."
 },{
   name: "Vespa",
   model: "GTS 125",
-  image: "https://images.piaggio.com/vespa/vehicles/nvh1000u03/nvh1q1tu03/nvh1q1tu03-01-s.png"
-  price: "245"
+  image: "https://images.piaggio.com/vespa/vehicles/nvh1000u03/nvh1q1tu03/nvh1q1tu03-01-s.png",
+  price: "245",
   description: "With its refreshed design, the Vespa GTS Super is raring to set off on adventures with you and provide thrills aplenty. Its sporting soul comes with the latest examples of technology incorporated in new and surprising ways. There’s much more to this family than a mere change of colour, with plenty of scope for each and every proud owner to express their own style and individuality."
 },{
   name: "Vespa",
   model: "Primavera 50",
-  image: "https://images.piaggio.com/vespa/vehicles/nvf1000u01/nvf1dklu01/nvf1dklu01-01-s.png"
-  price: "245"
+  image: "https://images.piaggio.com/vespa/vehicles/nvf1000u01/nvf1dklu01/nvf1dklu01-01-s.png",
+  price: "245",
   description: "With its refreshed design, the Vespa GTS Super is raring to set off on adventures with you and provide thrills aplenty. Its sporting soul comes with the latest examples of technology incorporated in new and surprising ways. There’s much more to this family than a mere change of colour, with plenty of scope for each and every proud owner to express their own style and individuality."
 }])
 
-p "Created #{Book.count} Books"
+p "Created #{Motorbike.count} Motorbikes"
