@@ -1,5 +1,5 @@
 class Api::V1::MotorbikesController < ApplicationController
-  before_action :set_motorbike, only: %i[show update destroy]
+  before_action :set_motorbike, only: %i[show]
 
   def index
     @motorbikes = Motorbike.all
@@ -7,19 +7,7 @@ class Api::V1::MotorbikesController < ApplicationController
   end
 
   def show
-    # Your code to fetch a specific motorbike
-  end
-
-  def create
-    # Your code to create a new motorbike
-  end
-
-  def update
-    # Your code to update a motorbike
-  end
-
-  def destroy
-    # Your code to delete a motorbike
+    render json: @motorbike
   end
 
   private
