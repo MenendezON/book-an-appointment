@@ -15,8 +15,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_07_120807) do
   enable_extension "plpgsql"
 
   create_table "motorbikes", force: :cascade do |t|
+    t.string "name"
+    t.string "model"
     t.string "image"
     t.integer "price"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
