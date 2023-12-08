@@ -1,35 +1,31 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {
-  useParams, Link,
+  useParams
 } from 'react-router-dom';
 
 const Details = () => {
   const { content } = useSelector((store) => store.motorbikes);
+  const { id } = useParams(); // Assuming the parameter you're interested in is named 'id'
 
-  console.log(content)
-
-  const filter = useParams();
-  console.log(filter);
+  // Filter the array based on the id parameter
+  const filteredArray = content.filter(item => item.id === parseInt(id));
 
   return (
-    <>
-      {content.length > 0 && filter !== 'All' && content.filter((stat) => stat.id === filter.id).map((stat) => (
-        <section key={stat.id}>
-            <div className="avatar">
-              <img src={stat.image} alt="" />
-            </div>
-            <h2>{stat.name}</h2>
-            <div className="desc">
-              <h2>
-                $
-                {stat.price}
-              </h2>
-              <p>{stat.description}</p>
-            </div>
-      </section>
-      ))}
-    </>
+    <div>
+      <h1>Filtered Motorbike Details</h1>
+      {filteredArray.length === 0 ? (
+        <p>No motorbike found with the specified ID</p>
+      ) : (
+        <div>
+          <p>ID: {filteredArray[0].id}</p>
+          <p>Name: {filteredArray[0].name}</p>
+          <p>Image: {filteredArray[0].image}</p>
+          <p>Model: {filteredArray[0].model}</p>
+          <p>Description: {filteredArray[0].description}</p>
+        </div>
+      )}
+    </div>
   );
 };
 
