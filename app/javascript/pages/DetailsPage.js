@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {
-  useParams
+  useParams, Link
 } from 'react-router-dom';
 
 const Details = () => {
@@ -23,6 +23,7 @@ const Details = () => {
           <p>Image: {filteredArray[0].image}</p>
           <p>Model: {filteredArray[0].model}</p>
           <p>Description: {filteredArray[0].description}</p>
+          <Link to={`./reservation/new`} key={filteredArray[0].id} className="card">Reservation</Link>
         </div>
       )}
     </div>
