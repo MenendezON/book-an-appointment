@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h1><b> 🏖 Resort Booking 🏞 </b></h1>
+  <h1><b> 🏖 Motorbike Booking 🏞 </b></h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -9,7 +9,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [💸 Resort Booking ](#-resort-booking-)
+- [💸 Motorbike Booking ](#-Motorbike-booking-)
 - [🛠 Built With ](#-built-with-)
   - [📌 Tech Stack ](#-tech-stack-)
 - [🎲 Key Features ](#-key-features-)
@@ -28,9 +28,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# Resort Booking <a name="about-project"></a>
+# Motorbike Booking <a name="about-project"></a>
 
-**Resort Booking** is a web application that offers a diverse selection of luxurious accommodations and amenities. Find your slice of paradise, effortlessly plan your trip, and make memories that last a lifetime with ResortHub.
+**Motorbike Booking** is a web application that offers a diverse selection of luxurious accommodations and amenities. Find your slice of paradise, effortlessly plan your trip, and make memories that last a lifetime with MotorbikeHub.
 
 
 # 🛠 Built With <a name="built-with"></a>
@@ -50,10 +50,10 @@
 - Create a new account
 - Log in to an existing account
 - Sign out from a session
-- Choose from a variety of beatiful resorts
-- Book a resort
-- Add a resort
-- Delete a resort
+- Choose from a variety of beatiful Motorbikes
+- Book a Motorbike 
+- Add a Motorbike
+- Delete a Motorbike 
 
 # 🚀 Live Demo <a name="live-demo"></a>
 
