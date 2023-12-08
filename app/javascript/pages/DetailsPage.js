@@ -20,10 +20,11 @@ const Details = () => {
         <div>
           <p>ID: {filteredArray[0].id}</p>
           <p>Name: {filteredArray[0].name}</p>
-          <p>Image: {filteredArray[0].image}</p>
           <p>Model: {filteredArray[0].model}</p>
+          <p>Price: {filteredArray[0].price}</p>
+          <p>Image: {filteredArray[0].image}</p>
           <p>Description: {filteredArray[0].description}</p>
-          <Link to={`./reservation/new`} key={filteredArray[0].id} className="card">Reservation</Link>
+          <Link to={`./reservation/new`} key={filteredArray[0].id} className="card">Reserve</Link>
         </div>
       )}
     </div>
