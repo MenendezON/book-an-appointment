@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ReservationTest < ActiveSupport::TestCase
+class Api::V1::MotorbikesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
