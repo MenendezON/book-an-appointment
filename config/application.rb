@@ -1,3 +1,5 @@
+# config/application.rb
+
 require_relative "boot"
 
 require "rails/all"
@@ -15,6 +17,18 @@ module BookAnAppointment
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w(assets tasks))
+
+    # Rack::Cors configuration
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'localhost:3000', '127.0.0.1:3000', '[::1]:3000'
+        # Add any other origins you need, or use '*' to allow all origins
+
+        resource '*',
+          headers: :any,
+          methods: %i[get post put patch delete options head]
+      end
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #
