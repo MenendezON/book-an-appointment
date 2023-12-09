@@ -1,4 +1,3 @@
-// app/javascript/redux/store.js
 import { configureStore } from '@reduxjs/toolkit';
 import motorbikesReducer from './motorbikes/motorbikeSlice';
 import userAuthReducer from './userAuthSlice';
