@@ -12,7 +12,8 @@ const Details = () => {
   const filteredArray = content.filter(item => item.id === parseInt(id));
 
   return (
-    <div>
+    <>
+    <section>
       <h1>Filtered Motorbike Details</h1>
       {filteredArray.length === 0 ? (
         <p>No motorbike found with the specified ID</p>
@@ -27,7 +28,8 @@ const Details = () => {
           <Link to={`./reservation/new`} key={filteredArray[0].id} className="card">Reserve</Link>
         </div>
       )}
-    </div>
+    </section>
+    </>
   );
 };
 
