@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
   def authenticate
     name = params[:name]
+
+    if name.blank?
+      puts "Name is blank. Authentication failed."
+      render json: { error: 'Name is required' }, status: :unprocessable_entity
+      return
+    end
+
     user = User.find_by(name: name)
 
     if user
