@@ -5,9 +5,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMotorbikes } from '../redux/motorbikes/motorbikeSlice';
 
-import Home from '../pages/HomePage.js';
-import Details from '../pages/DetailsPage.js';
-import MyReservations from '../pages/MyReservationsPage.js';
+import Home from '../pages/HomePage';
+import Details from '../pages/DetailsPage';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -20,9 +19,8 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/motorbikes/:id" element={<Details />} />
-      <Route path="/my_reservations" element={<MyReservations />} /> 
     </Routes>
   );
-}
+};
 
 export default App;
