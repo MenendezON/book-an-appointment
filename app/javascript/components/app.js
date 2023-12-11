@@ -2,30 +2,25 @@
 import * as React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react'; // Add this import statement
+import { useEffect } from 'react';
 import { getMotorbikes } from '../redux/motorbikes/motorbikeSlice';
 import Home from '../pages/HomePage';
 import Details from '../pages/DetailsPage';
-import LoginPage from '../pages/LoginPage'; // Import your LoginPage component
+import LoginPage from '../pages/LoginPage';
 
 const App = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.userAuth.isAuthenticated);
-  // Use the actual authentication state
 
-  useEffect(() => { // Use useEffect here
+  useEffect(() => {
     dispatch(getMotorbikes());
   }, [dispatch]);
 
   return (
     <Routes>
-      {/* Redirect to login if not authenticated */}
-      {!isAuthenticated ? <Route path="/" element={<Navigate to="/login" />} /> : null}
-
-      {/* Routes for authenticated users */}
+      <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/motorbikes/:id" element={<Details />} />
+      <Route path="/motorbikes/:id" element={isAuthenticated ? <Details /> : <Navigate to="/login" />} />
     </Routes>
   );
 };
