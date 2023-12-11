@@ -1,0 +1,171 @@
+:root {
+  --main: #3778C2;
+  --second: #5FB523;
+  --text: #434B54;
+  --white: #fff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* stylelint-disable no-descending-specificity */
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  height: 100%;
+  color: var(--text);
+  background-color: var(--white);
+  overflow: hidden;
+}
+#root {
+  display: flex;
+  height: 100vh;
+}
+#root header {
+  height: 100vh;
+  width: 15vw;
+  border-right: 1px solid var(--second);
+  padding-left:10px
+}
+#root section {
+  height: 100vh;
+  width: 85vw;
+}
+header .logo img{
+  width: 100%;
+  margin: 20px auto;
+}
+header nav{
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+header nav a{
+  background-color: var(--white);
+  color: var(--text);
+  padding: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+header nav a:hover{
+  background-color: var(--second);
+  color: #fff;
+}
+header .network-icon{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+header .network-icon img{
+  width: 30px;
+}
+header .copyright p{
+  text-align: center;
+  padding:5px;
+}
+.avatar{
+  background-image: url("https://pennypost.org.uk/wp-content/uploads/2018/10/shiny-silver-6010-foil.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+}
+.avatar img{
+  width: 300px;
+}
+section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+section>div{
+  height: 100vh;
+}
+section>.left_nav,
+section>.right_nav{
+  display: flex;
+  align-items: center;
+  width: 4.5%;
+}
+.left_nav div{
+  border-radius: 0 8px 8px 0;
+}
+.right_nav div{
+  border-radius: 8px 0 0 8px;
+}
+section>.cards{
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 200px;
+}
+.cards>.top_header>h2{
+  text-transform: uppercase;
+  font-size: 2em;
+}
+.cards>.top_header>p{
+  font-size: 11pt;
+  padding-top: 10px;
+  color:silver;
+}
+.dashed-line{
+  border-bottom: 2px dashed silver;
+  width: 100px;
+  margin: auto;
+}
+.cards>.bottom_content{
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+}
+.bottom_content a{
+  text-decoration: none;
+  color:var(--text);
+  font-weight: bold;
+}
+.bottom_content>.card{
+  padding:25px;
+}
+.bottom_content>.card>*{
+  padding:10px;
+}
+.card .desc{
+  font-weight: normal;
+  color:silver;
+  font-size: 10pt;
+}
+section .btn{
+  color:var(--white);
+  text-align: center;
+  padding: 15px 30px;
+}
+section .active{
+  background: var(--second);
+  cursor: pointer;
+}
+section .inactive{
+  background: silver;
+}
+.shared-icon{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap:5px;
+}
+.shared-icon img{
+  width: 25px;
+}
+/* loading page */
+.loadingPage{
+  height: 100vh;
+  width: 100vw;
+  background-color: silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
