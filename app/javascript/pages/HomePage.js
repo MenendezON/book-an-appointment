@@ -5,6 +5,11 @@ import {
 } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 
+import loading from '../assets/images/loading.gif'
+import twitter from '../assets/images/twitter.png';
+import facebook from '../assets/images/facebook.png';
+import googleplus from '../assets/images/googleplus.png';
+
 const Home = () => {
   const { content, isLoading, error } = useSelector((store) => store.motorbikes);
   const [displayedItems, setDisplayedItems] = useState(3);
@@ -19,7 +24,9 @@ const Home = () => {
   
   if (isLoading) {
     return (
-      <h1>Loading</h1>
+      <div className='loadingPage'>
+        <img src={loading} alt="" />
+      </div>
     );
   }
   if (error) {
@@ -60,6 +67,11 @@ const Home = () => {
                 <div className='dashed-line'>&nbsp;</div>
                 <div className="desc">
                   <p>{stat.name} {stat.model} is our heritage model and boots the classical look with all the modern goods.</p>
+                </div>
+                <div className='shared-icon'>
+                  <img src={facebook} alt="" />
+                  <img src={twitter} alt="" />
+                  <img src={googleplus} alt="" />
                 </div>
               </Link>
             ))}

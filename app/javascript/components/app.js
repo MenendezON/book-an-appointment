@@ -7,6 +7,7 @@ import { getMotorbikes } from '../redux/motorbikes/motorbikeSlice';
 import Home from '../pages/HomePage';
 import Details from '../pages/DetailsPage';
 import LoginPage from '../pages/LoginPage';
+import '../assets/css/style.css';
 
 
 const App = () => {
