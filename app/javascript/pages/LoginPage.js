@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { authenticateUser } from '../redux/userAuthSlice';
-import '../src/style.css/LoginPage.css';
+import '../../assets/stylesheets/LoginPage.css';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
