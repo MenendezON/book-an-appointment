@@ -15,6 +15,14 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   output: {
@@ -27,17 +35,4 @@ module.exports = {
       maxChunks: 1,
     }),
   ],
-  module: {
-    rules: [
-      // -------
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
-      },
-    ],
-},
 };
