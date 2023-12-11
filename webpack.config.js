@@ -1,4 +1,3 @@
-
 const path = require('path');
 const webpack = require('webpack');
 
@@ -16,12 +15,14 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
+
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
             loader: 'file-loader',
           },
         ],
+
       },
     ],
   },
