@@ -13,6 +13,7 @@ const Details = () => {
 
   return (
     <>
+    <Navigation />
     <section>
       <h1>Filtered Motorbike Details</h1>
       {filteredArray.length === 0 ? (

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import {
   Link,
 } from 'react-router-dom';
+import Navigation from '../components/Navigation';
 
 const Home = () => {
   const { content, isLoading, error } = useSelector((store) => store.motorbikes);
@@ -32,6 +33,7 @@ const Home = () => {
   if (content) {
     return (
       <>
+      <Navigation />
         <section>
         <div className='left_nav'>
         {displayedItems > 3 ? (
