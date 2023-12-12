@@ -4,8 +4,8 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const ReservationForm = () => {
  const [date, setDate] = useState(new Date());
- const [city, setCity] = useState('');
- const [motorbike, setMotorbike] = useState(''); // Add this line
+ const [city, setCity] = useState('Amsterdam'); // Default city set to Amsterdam
+ const [motorbike, setMotorbike] = useState('');
 
  const handleSubmit = (event) => {
  event.preventDefault();
@@ -14,19 +14,21 @@ const ReservationForm = () => {
 
  return (
  <form onSubmit={handleSubmit}>
-   <label>
-     Date:
-     <DatePicker selected={date} onChange={(date) => setDate(date)} />
-   </label>
-   <label>
-     City:
-     <input type="text" value={city} onChange={(event) => setCity(event.target.value)} />
-   </label>
-   <label>
-     Motorbike:
-     <input type="text" value={motorbike} onChange={(event) => setMotorbike(event.target.value)} /> // Add this line
-   </label>
-   <input type="submit" value="Reserve" />
+  <label>
+    Date:
+    <DatePicker selected={date} onChange={(date) => setDate(date)} />
+  </label>
+  <label>
+    City:
+    <select value={city} onChange={(event) => setCity(event.target.value)}>
+      <option value="Amsterdam">Amsterdam</option>
+    </select>
+  </label>
+  <label>
+    Motorbike:
+    <input type="text" value={motorbike} onChange={(event) => setMotorbike(event.target.value)} />
+  </label>
+  <input type="submit" value="Reserve" />
  </form>
  );
 };

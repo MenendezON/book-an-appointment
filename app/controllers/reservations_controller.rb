@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = User.find(session[:user_id]).reservations.create(reservation_params)
     if @reservation.save
-      redirect_to my_reservations_path, notice: 'Reservation was successfully created.'
+      redirect_to reservations_path, notice: 'Reservation was successfully created.' # Updated line
     else
       render :new
     end
@@ -20,4 +20,4 @@ class ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:date, :city)
   end
-end
+ end
