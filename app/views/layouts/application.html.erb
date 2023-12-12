@@ -7,10 +7,14 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/5.3.2/css/bootstrap.min.css", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "/assets/application.js", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "https://stackpath.bootstrapcdn.com/bootstrap/5.3.2/js/bootstrap.bundle.min.js", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
