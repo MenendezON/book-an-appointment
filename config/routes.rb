@@ -1,3 +1,4 @@
+# config/routes.rb
 Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :motorbikes
+      resources :reservations
     end
   end
 
@@ -17,7 +19,4 @@ Rails.application.routes.draw do
   root 'main#index'
 
   resources :motorbikes, only: %i[show]
-
-  # Add new route for "My Reservations"
-  get '/my_reservations', to: 'reservations#my_reservations'
 end
