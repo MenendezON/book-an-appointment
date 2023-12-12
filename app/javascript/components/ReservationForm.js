@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
+import Select from 'react-select';
 import "react-datepicker/dist/react-datepicker.css";
 
 const ReservationForm = () => {
  const [date, setDate] = useState(new Date());
- const [city, setCity] = useState('Amsterdam'); // Default city set to Amsterdam
- const [motorbike, setMotorbike] = useState('');
+ const [city, setCity] = useState('Amsterdam');
+ const [motorbike, setMotorbike] = useState(null);
+
+ const motorbikes = [
+  { value: 'motorbike1', label: 'Motorbike 1' },
+  { value: 'motorbike2', label: 'Motorbike 2' },
+ ];
 
  const handleSubmit = (event) => {
  event.preventDefault();
- // Make a POST request to the Rails API to create the reservation
  };
 
  return (
@@ -26,7 +31,11 @@ const ReservationForm = () => {
   </label>
   <label>
     Motorbike:
-    <input type="text" value={motorbike} onChange={(event) => setMotorbike(event.target.value)} />
+    <Select 
+      value={motorbike} 
+      onChange={setMotorbike} 
+      options={motorbikes} 
+    /> // Add this line
   </label>
   <input type="submit" value="Reserve" />
  </form>
