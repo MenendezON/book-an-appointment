@@ -19,10 +19,4 @@ Rails.application.routes.draw do
   root 'main#index'
 
   resources :motorbikes, only: %i[show]
-
-  # Add new route for "My Reservations"
-  get '/my_reservations', to: 'reservations#my_reservations'
-
-  #  new route for creating a reservation
-  post '/reservations', to: 'reservations#create'
 end
