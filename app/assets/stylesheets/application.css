@@ -1,7 +1,7 @@
 /* application.css */
 @import "LoginPage";
+@import "bootstrap";
 
-/* Add this block */
 @media only screen and (max-width: 600px) {
  body {
    padding: 10px;
