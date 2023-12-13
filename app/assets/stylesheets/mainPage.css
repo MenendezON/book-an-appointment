@@ -6,6 +6,7 @@ header {
   justify-content: center;
   align-content: center;
   align-items: center;
+  width: 232px;
 }
 
 /* mainPage.css */
@@ -13,7 +14,7 @@ header {
 #network-icon {
   display: flex;
   justify-content: center;
-  gap: 37px;
+  gap: 15px;
   width: 100%;
 }
 
@@ -24,6 +25,7 @@ header {
 }
 
 #logo {
+  width: 229px;
   padding-bottom: 70px;
   padding-top: 20px;
 }

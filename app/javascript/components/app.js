@@ -19,11 +19,10 @@ const App = () => {
   return (
     <Routes>
 
-
-      <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/motorbikes/:id" element={isAuthenticated ? <Details /> : <Navigate to="/login" />} />
-        
+
     </Routes>
   );
 };

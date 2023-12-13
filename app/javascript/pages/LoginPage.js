@@ -27,7 +27,7 @@ const LoginPage = () => {
       <div className="login-container">
         <h2>Motobike Booking App</h2>
         <div className="input-container">
-          <label>Name:</label>
+          <label>Enter Your Name:</label>
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         </div>
         <div className="button-container">
