@@ -40,7 +40,7 @@ nav {
   font-size: 22px;
   padding: 15px;
   text-align: center;
-
+  text-decoration: none;
 }
 
 .nav-link:hover {
@@ -54,4 +54,121 @@ nav {
 .container {
   display: flex;
   align-items: start;
+}
+
+section {
+  display: flex;
+  align-items: center;
+}
+
+.left_nav,
+.right_nav {
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.btn {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn.inactive {
+  background-color: #ccc;
+  color: #888;
+}
+
+.cards-container {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.bottom_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  scroll-behavior: smooth;
+  transition: transform 1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+
+.card {
+  font-family: 'Lato', sans-serif;
+  flex: 0 0 350px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #333;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 1s cubic-bezier(0.15, 0.8, 0.35, 1);
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.avatar img {
+  max-width: 100%;
+  height: auto;
+}
+
+.desc {
+  margin-top: 10px;
+  color: rgb(170, 161, 161);
+}
+
+.session {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top_header h2{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 5px;
+  padding-top: 70px;
+}
+
+.top_header p{
+  font-family: 'PT Sans', sans-serif;
+  color: rgb(170, 161, 161); 
+}
+
+.motor_title {
+  font-family: 'Roboto', sans-serif;
+  color: black;
+}
+
+.media_handle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  gap: 10px;
+}
+
+.media_handle > img{
+  width: 20px;
+  height: auto;
+  width: 12px;
+  height: auto;
+  padding: 0.5rem;
+  border: 1px solid rgb(170, 161, 161);
+  border-radius: 50%;
+  margin-right: 10px;
+  color:  rgb(170, 161, 161);
 }
