@@ -1,171 +1,119 @@
 :root {
-  --main: #3778C2;
-  --second: #5FB523;
-  --text: #434B54;
-  --white: #fff;
+  --main: #6D4C41; /* Updated main color */
+  --second: #039BE5; /* Updated second color */
+  --text: #263238; /* Updated text color */
+  --white: #F5F5F5; /* Updated white color */
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-/* stylelint-disable no-descending-specificity */
+
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif; /* Changed font to Roboto */
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5;
   height: 100%;
   color: var(--text);
   background-color: var(--white);
-  overflow: hidden;
+  overflow-x: hidden; /* Hidden horizontal overflow */
 }
+
 #root {
   display: flex;
-  height: 100vh;
+  min-height: 100vh; /* Changed height to min-height for flexibility */
 }
+
 #root header {
-  height: 100vh;
-  width: 15vw;
+  min-width: 200px; /* Updated minimum width */
   border-right: 1px solid var(--second);
-  padding-left:10px
+  padding-left: 10px;
+  overflow-y: auto; /* Added overflow for small screens */
 }
+
 #root section {
-  height: 100vh;
-  width: 85vw;
+  flex-grow: 1;
+  overflow-y: auto; /* Added overflow for small screens */
 }
-header .logo img{
-  width: 100%;
+
+header .logo img {
+  width: 80%; /* Adjusted logo width */
   margin: 20px auto;
 }
-header nav{
-  height: 70vh;
+
+header nav {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  padding-top: 20px; /* Added padding for better spacing */
 }
-header nav a{
-  background-color: var(--white);
-  color: var(--text);
-  padding: 20px;
+
+header nav a {
+  background-color: var(--main);
+  color: var(--white);
+  padding: 15px;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
+  border-radius: 5px; /* Added border-radius for rounded corners */
 }
-header nav a:hover{
+
+header nav a:hover {
   background-color: var(--second);
-  color: #fff;
 }
-header .network-icon{
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
+
+.header .network-icon img {
+  width: 25px; /* Adjusted network icon size */
 }
-header .network-icon img{
-  width: 30px;
-}
-header .copyright p{
-  text-align: center;
-  padding:5px;
-}
-.avatar{
+
+.avatar {
   background-image: url("https://pennypost.org.uk/wp-content/uploads/2018/10/shiny-silver-6010-foil.png");
-  background-size: contain;
-  background-position: center center;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  border-radius: 25px;
+  border-radius: 50%;
+  width: 100px; /* Adjusted avatar size */
+  height: 100px;
 }
-.avatar img{
-  width: 300px;
-}
-section{
+
+section {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap; /* Wrapped for responsiveness */
+  gap: 20px;
+  padding: 20px; /* Added padding for spacing */
 }
-section>div{
-  height: 100vh;
+
+section > div {
+  flex-grow: 1;
 }
-section>.left_nav,
-section>.right_nav{
-  display: flex;
-  align-items: center;
-  width: 4.5%;
-}
-.left_nav div{
-  border-radius: 0 8px 8px 0;
-}
-.right_nav div{
-  border-radius: 8px 0 0 8px;
-}
-section>.cards{
-  display:flex;
-  flex-direction: column;
-  text-align: center;
-  padding-top: 200px;
-}
-.cards>.top_header>h2{
-  text-transform: uppercase;
-  font-size: 2em;
-}
-.cards>.top_header>p{
-  font-size: 11pt;
-  padding-top: 10px;
-  color:silver;
-}
-.dashed-line{
-  border-bottom: 2px dashed silver;
-  width: 100px;
-  margin: auto;
-}
-.cards>.bottom_content{
-  display: flex;
-  flex-direction: row;
-  gap:10px;
-}
-.bottom_content a{
-  text-decoration: none;
-  color:var(--text);
-  font-weight: bold;
-}
-.bottom_content>.card{
-  padding:25px;
-}
-.bottom_content>.card>*{
-  padding:10px;
-}
-.card .desc{
-  font-weight: normal;
-  color:silver;
-  font-size: 10pt;
-}
-section .btn{
-  color:var(--white);
+
+section .btn {
+  color: var(--white);
   text-align: center;
   padding: 15px 30px;
+  border-radius: 5px;
 }
-section .active{
+
+section .active {
   background: var(--second);
   cursor: pointer;
 }
-section .inactive{
-  background: silver;
+
+section .inactive {
+  background: #9e9e9e; /* Changed inactive color */
 }
-.shared-icon{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap:5px;
+
+.shared-icon img {
+  width: 20px; /* Adjusted shared icon size */
 }
-.shared-icon img{
-  width: 25px;
-}
+
 /* loading page */
-.loadingPage{
-  height: 100vh;
-  width: 100vw;
-  background-color: silver;
+.loadingPage {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
