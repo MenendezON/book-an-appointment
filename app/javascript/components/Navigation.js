@@ -18,6 +18,8 @@ function Navigation() {
       <Link to="/">Lien 1</Link>
       <Link to="/">Lien 2</Link>
       <Link to="/">Lien 3</Link>
+      <Link to="/add">Add Motorbike</Link>
+
     </nav>
     <div id="network-icon">
       <Link to="/"><img src={facebook} alt="" /></Link>
