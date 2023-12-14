@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { authenticateUser } from '../redux/userAuthSlice';
+import '../assets/css/login.css';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -22,18 +23,18 @@ const LoginPage = () => {
   };
 
   return (
-    <section className="loginForm">
+    <div className="loginForm">
       <div className="login-container">
         <h2>Motobike Booking App</h2>
         <div className="input-container">
-          <label>Name:</label>
+          <label>Enter Your Name:</label>
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         </div>
         <div className="button-container">
           <button onClick={handleLogin}>Login</button>
         </div>
       </div>
-    </section>
+    </div>
 
   );
 };
