@@ -1,0 +1,266 @@
+:root {
+  --main: #3778c2;
+  --second: #5fb523;
+  --text: #434b54;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* stylelint-disable no-descending-specificity */
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  height: 100%;
+  color: var(--text);
+  background-color: var(--white);
+}
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+#root header {
+  height: 100vh;
+  width: 15vw;
+  border-right: 1px solid var(--second);
+  padding-left: 10px;
+}
+
+#root section {
+  height: 100vh;
+  width: 85vw;
+}
+
+header .logo img {
+  width: 100%;
+  margin: 20px auto;
+}
+
+header nav {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header nav a {
+  background-color: var(--white);
+  color: var(--text);
+  padding: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  background-color: var(--second);
+  color: #fff;
+}
+
+header .network-icon {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+header .network-icon img {
+  width: 25px;
+}
+
+header .copyright {
+  text-align: center;
+  font-size: 10pt;
+  padding: 5px;
+}
+
+.avatar {
+  background-image: url("https://pennypost.org.uk/wp-content/uploads/2018/10/shiny-silver-6010-foil.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+}
+
+.avatar img {
+  width: 300px;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+section > div {
+  height: 100vh;
+}
+
+section > .left_nav,
+section > .right_nav {
+  display: flex;
+  align-items: center;
+  width: 4.5%;
+}
+
+.left_nav div {
+  border-radius: 0 8px 8px 0;
+}
+
+.right_nav div {
+  border-radius: 8px 0 0 8px;
+}
+
+section > .cards {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 200px;
+}
+
+.cards > .top_header > h2 {
+  text-transform: uppercase;
+  font-size: 2em;
+}
+
+.cards > .top_header > p {
+  font-size: 11pt;
+  padding-top: 10px;
+  color: silver;
+}
+
+.dashed-line {
+  border-bottom: 2px dashed silver;
+  width: 100px;
+  margin: auto;
+}
+
+.cards > .bottom_content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.bottom_content a {
+  color: var(--text);
+  font-weight: bold;
+}
+
+.card {
+  transition: transform 1s cubic-bezier(0.15, 0.8, 0.35, 1);
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card .desc {
+  font-weight: normal;
+  color: silver;
+  font-size: 10pt;
+}
+
+section .btn {
+  color: var(--white);
+  text-align: center;
+  padding: 15px 20px;
+}
+
+section .active {
+  background: var(--second);
+  cursor: pointer;
+}
+
+section .inactive {
+  background: silver;
+}
+
+.shared-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+}
+
+.shared-icon img {
+  width: 25px;
+}
+
+.media_handle {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.media_handle > img {
+  width: 20px;
+  padding: 2px;
+  border: 1px solid rgb(170, 161, 161);
+  border-radius: 50%;
+  margin: 10px;
+  color: rgb(170, 161, 161);
+}
+
+/* loading page */
+.loadingPage {
+  height: 100vh;
+  width: 100vw;
+  background-color: silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* details page */
+.leftPart {
+  width: 65vw;
+  padding-top: 10vh;
+}
+
+.leftPart > img {
+  width: 100%;
+}
+
+.rightPart {
+  width: 20vw;
+  padding-top: 10vh;
+  padding-right: 50px;
+  text-align: right;
+}
+
+.btn-lg {
+  color: var(--white);
+  text-align: center;
+  padding: 15px 50px;
+  border-radius: 10px;
+}
+
+.rightPart table {
+  margin: 50px 0 200px 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px;
+}
+
+table tr:nth-child(odd) { background-color: silver; }
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: red;
+  }
+}
