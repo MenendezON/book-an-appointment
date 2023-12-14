@@ -1,9 +1,14 @@
 # app/controllers/reservations_controller.rb
-class ReservationsController < ApplicationController
+class Api::V1::ReservationsController < ApplicationController
   # before_action :authenticate_user!
 
-  def my_reservations
+  def index
     @reservations = User.find(session[:user_id]).reservations
+  end
+
+  def new
+    @id = params[:motorbike_id]
+    render json: @id
   end
 
   def create
