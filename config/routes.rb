@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :motorbikes
+      resources :motorbikes, only: [:index, :new, :create, :show] do
+        resources :reservations
+      end
       resources :reservations
     end
   end

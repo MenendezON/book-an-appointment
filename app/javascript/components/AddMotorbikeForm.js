@@ -48,7 +48,8 @@ const AddMotorbikeForm = ({ onAddMotorbike }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <section>
+      <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="name">Name:</label>
         <input
@@ -74,17 +75,17 @@ const AddMotorbikeForm = ({ onAddMotorbike }) => {
       <div>
         <label htmlFor="image">Image URL:</label>
         <input
-          type="text"
+          type="url"
           id="image"
           name="image"
-          value={formData.image}
+          value='https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_838,h_567/https://mgmotorsports.com/wp-content/uploads/2023/02/mike-gardner-riding-motorcycle.png'
           onChange={handleChange}
         />
       </div>
       <div>
         <label htmlFor="price">Price:</label>
         <input
-          type="text"
+          type="numeric"
           id="price"
           name="price"
           value={formData.price}
@@ -102,6 +103,7 @@ const AddMotorbikeForm = ({ onAddMotorbike }) => {
       </div>
       <button type="submit">Add Motorbike</button>
     </form>
+    </section>
   );
 };
 

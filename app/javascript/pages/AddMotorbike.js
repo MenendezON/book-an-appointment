@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useDispatch } from 'react-redux'; 
 import { addMotorbike } from '../redux/motorbikes/motorbikeSlice'; 
-import AddMotorbikeForm from './AddMotorbikeForm';
+import AddMotorbikeForm from '../components/AddMotorbikeForm';
 import Navigation from '../components/Navigation';
 
 const AddMotorbike = () => {
@@ -10,7 +10,7 @@ const AddMotorbike = () => {
 
   const handleAddMotorbike = (motorbikeData) => {
     dispatch(addMotorbike(motorbikeData));  
-
+    console.motorbikeData;
     axios.post('/api/v1/motorbikes', motorbikeData)
       .then(response => console.log('Motorbike added to the database:', response))
       .catch(error => console.error('Error adding motorbike to the database:', error));

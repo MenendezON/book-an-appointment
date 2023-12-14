@@ -161,6 +161,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (3.0.8)
+    rack-cors (2.0.1)
+      rack (>= 2.0.0)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -232,9 +234,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.9-x64-mingw-ucrt)
-    sqlite3 (1.6.9-x86_64-darwin)
-    sqlite3 (1.6.9-x86_64-linux)
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.1.0)
@@ -276,11 +275,11 @@ DEPENDENCIES
   jsbundling-rails
   pg
   puma (>= 5.0)
+  rack-cors
   rails (~> 7.1.2)
   rubocop (>= 1.0, < 2.0)
   selenium-webdriver
   sprockets-rails
-  sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
   tzinfo-data

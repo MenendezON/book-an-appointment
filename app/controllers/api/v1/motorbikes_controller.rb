@@ -10,6 +10,10 @@ class Api::V1::MotorbikesController < ApplicationController
     render json: @motorbike
   end
 
+  def new
+    @motorbike = Motorbike.new
+  end
+
   def create
     @motorbike = Motorbike.new(motorbike_params)
 
