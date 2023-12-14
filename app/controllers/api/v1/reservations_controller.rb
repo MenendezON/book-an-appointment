@@ -1,22 +1,22 @@
-# app/controllers/reservations_controller.rb
 class Api::V1::ReservationsController < ApplicationController
   # before_action :authenticate_user!
 
   def index
-    @reservations = User.find(session[:user_id]).reservations
+    @reservations = Reservation.all
+    render json: @reservations
   end
 
   def new
-    @id = params[:motorbike_id]
-    render json: @id
+    @reservation = Reservation.new
   end
 
   def create
-    @reservation = User.find(session[:user_id]).reservations.create(reservation_params)
+    @reservation = Reservation.new(reservation_params)
+
     if @reservation.save
-      redirect_to reservations_path, notice: 'Reservation was successfully created.' # Updated line
+      render json: @reservation, status: :created
     else
-      render :new
+      render json: @reservation.errors, status: :unprocessable_entity
     end
   end
 

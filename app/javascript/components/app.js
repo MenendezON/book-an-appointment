@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getMotorbikes } from '../redux/motorbikes/motorbikeSlice';
 
+
 import Home from '../pages/HomePage';
 import Details from '../pages/DetailsPage';
 import LoginPage from '../pages/LoginPage';
-
-import '../assets/css/style.css'
+import AddMotorbike from '../pages/newMotorbike';
+import '../assets/css/style.css';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -20,11 +21,10 @@ const App = () => {
 
   return (
     <Routes>
-
       <Route path="/" element={<Home /> } />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/motorbikes/new" element={<AddMotorbike />} />
       <Route path="/motorbikes/:id" element={<Details />} />
-
     </Routes>
   );
 };

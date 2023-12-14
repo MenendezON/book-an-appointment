@@ -14,9 +14,11 @@ function Navigation() {
         <img src={logo} alt="" />
       </div>
       <nav>
-        <Link className="nav-link" to="/">Lien 1</Link>
-        <Link className="nav-link" to="/">Lien 2</Link>
-        <Link className="nav-link" to="/">Lien 3</Link>
+        
+      <Link to="/">Lien 1</Link>
+      <Link to="/">Lien 2</Link>
+      <Link to="/">Lien 3</Link>
+      <Link to="/motorbikes/new">Add Motorbike</Link>
       </nav>
       <div className="network-icon">
         <Link to="/"><img src={facebook} alt="" /></Link>
