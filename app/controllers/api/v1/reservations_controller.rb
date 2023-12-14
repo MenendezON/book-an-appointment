@@ -1,4 +1,3 @@
-# app/controllers/reservations_controller.rb
 class Api::V1::ReservationsController < ApplicationController
   # before_action :authenticate_user!
 
@@ -7,8 +6,9 @@ class Api::V1::ReservationsController < ApplicationController
     render json: @reservations
   end
 
-  def new 
+  def new
     @reservation = Reservation.new
+  end
 
   def create
     @reservation = Reservation.new(reservation_params)
