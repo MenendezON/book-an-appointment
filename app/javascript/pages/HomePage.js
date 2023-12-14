@@ -4,6 +4,10 @@ import {
   Link,
 } from 'react-router-dom';
 import Navigation from '../components/Navigation';
+import loading from '../assets/images/loading.gif';
+import facebook from '../assets/images/facebook.png';
+import twitter from '../assets/images/twitter.png';
+import instagram from '../assets/images/instagram.png';
 
 import loading from '../assets/images/loading.gif'
 import twitter from '../assets/images/twitter.png';
@@ -68,11 +72,11 @@ const Home = () => {
                 <div className="desc">
                   <p>{stat.name} {stat.model} is our heritage model and boots the classical look with all the modern goods.</p>
                 </div>
-                <div className='shared-icon'>
-                  <img src={facebook} alt="" />
-                  <img src={twitter} alt="" />
-                  <img src={googleplus} alt="" />
-                </div>
+                <div className="media_handle">
+                        <img src={twitter} alt="" />
+                        <img src={facebook} alt="" />
+                        <img src={instagram} alt="" />
+                      </div>
               </Link>
             ))}
             </div>
