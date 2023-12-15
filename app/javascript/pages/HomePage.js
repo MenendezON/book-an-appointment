@@ -9,11 +9,6 @@ import facebook from '../assets/images/facebook.png';
 import twitter from '../assets/images/twitter.png';
 import instagram from '../assets/images/instagram.png';
 
-import loading from '../assets/images/loading.gif'
-import twitter from '../assets/images/twitter.png';
-import facebook from '../assets/images/facebook.png';
-import googleplus from '../assets/images/googleplus.png';
-
 const Home = () => {
   const { content, isLoading, error } = useSelector((store) => store.motorbikes);
   const [displayedItems, setDisplayedItems] = useState(3);
