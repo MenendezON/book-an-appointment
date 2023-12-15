@@ -6,18 +6,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :motorbikes, only: %i[index create show]
-      resources :reservations
-      ressource :login
+      resources :motorbikes, only: %i[index create show destroy]
+      resources :reservations, only: %i[index create show destroy]
     end
   end
 
-  # Redirect to the login page if not authenticated
-  get '/login', to: 'main#index', constraints: ->(req) { req.session[:user_id].nil? }
-  post '/login', to: 'users#authenticate' # Add a separate route for the login action
-
-  # Defines the root path route ("/")
-  root 'main#index'
-
-  resources :motorbikes, only: %i[show]
 end
