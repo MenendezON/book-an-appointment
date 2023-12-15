@@ -34,6 +34,7 @@ const Details = () => {
             <tr><td>Price</td><td>$ {mbk[0].price} USD</td></tr>
             <tr><td>Tax fee</td><td>$ {mbk[0].price * 0.15} USD</td></tr>
             <tr><td>Total payment</td><td>$ {mbk[0].price+(mbk[0].price * 0.15)} USD</td></tr>
+            <tr><td>Guarantee</td><td>12 months</td></tr>
           </table>
 
           <Link to={`./reservations/new`} key={mbk.id} className="btn-lg active">Reserve</Link>
@@ -46,15 +47,3 @@ const Details = () => {
 };
 
 export default Details;
-
-{/* <h1>Filtered Motorbike Details</h1>
-      {filteredArray.length === 0 ? (
-        <p>No motorbike found with the specified ID</p>
-      ) : (
-        <div>
-          <p>Price: {filteredArray[0].price}</p>
-          <p>Image: {filteredArray[0].image}</p>
-          <p>Description: {filteredArray[0].description}</p>
-          <Link to={`./reservation/new`} key={filteredArray[0].id} className="card">Reserve</Link>
-        </div>
-      )} */}
