@@ -10,7 +10,7 @@
  import Details from '../pages/DetailsPage';
  import Reservation from '../pages/ReservationPage';
  import ReservationForm from '../components/ReservationForm';
- import LoginPage from '../pages/LoginPage';
+ import LoginPage from '../pages/SignupPage';
  import AddMotorbike from '../pages/AddMotorbike';
  import '../assets/css/style.css';
  

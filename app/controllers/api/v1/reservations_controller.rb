@@ -1,7 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show]
   def index
-    @reservations = Reservation.includes(:motorbike, :user).where(user_id: 3)
+    @reservations = Reservation.includes(:motorbike, :user).where(user_id: current_user.id)
     render json: @reservations.to_json(include: { motorbike: {}, user: {} })
   end
 
@@ -26,7 +26,7 @@ class Api::V1::ReservationsController < ApplicationController
   private
 
   def set_reservation
-    @reservation = Reservation.includes(:motorbike, :user).find_by(id: params[:id], user_id: 3)
+    @reservation = Reservation.includes(:motorbike, :user).find_by(id: params[:id], user_id: current_user.id)
     render_404('Reservation not found or does not belong to the specified user') unless @reservation
   end
 
