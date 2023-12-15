@@ -51,7 +51,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
 end
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', groups: %i[development test]
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

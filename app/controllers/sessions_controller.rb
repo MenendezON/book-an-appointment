@@ -13,10 +13,6 @@ class SessionsController < Devise::SessionsController
     end
   end
 
-  def destroy
-    super
-  end
-
   private
 
   def current_token
