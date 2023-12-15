@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import loading from '../assets/images/loading.gif';
 
 const AddMotorbikeForm = ({ onAddMotorbike }) => {
   const [formData, setFormData] = useState({
@@ -48,8 +49,10 @@ const AddMotorbikeForm = ({ onAddMotorbike }) => {
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
+    <>
+      <div>
+        <h2>Add a new motorcycle</h2>
+        <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="name">Name:</label>
         <input
@@ -58,6 +61,7 @@ const AddMotorbikeForm = ({ onAddMotorbike }) => {
           name="name"
           value={formData.name}
           onChange={handleChange}
+          required
         />
         {formErrors.name && <p className="error">{formErrors.name}</p>}
       </div>
@@ -69,6 +73,7 @@ const AddMotorbikeForm = ({ onAddMotorbike }) => {
           name="model"
           value={formData.model}
           onChange={handleChange}
+          required
         />
         {formErrors.model && <p className="error">{formErrors.model}</p>}
       </div>
@@ -78,18 +83,20 @@ const AddMotorbikeForm = ({ onAddMotorbike }) => {
           type="url"
           id="image"
           name="image"
-          value='https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_838,h_567/https://mgmotorsports.com/wp-content/uploads/2023/02/mike-gardner-riding-motorcycle.png'
+          value={formData.image}
           onChange={handleChange}
+          required
         />
       </div>
       <div>
         <label htmlFor="price">Price:</label>
         <input
-          type="numeric"
+          type="number"
           id="price"
           name="price"
           value={formData.price}
           onChange={handleChange}
+          required
         />
       </div>
       <div>
@@ -99,12 +106,24 @@ const AddMotorbikeForm = ({ onAddMotorbike }) => {
           name="description"
           value={formData.description}
           onChange={handleChange}
+          required
         />
       </div>
       <button type="submit">Add Motorbike</button>
-    </form>
-    </section>
+        </form>
+      </div>
+      <div>
+        <img src={formData.image} alt='' />
+        {formData.image ? (<img src={formData.image} alt='' />):(<img src={loading} alt='loading' />)}
+        {formData.name && (<p><strong>Name:</strong> {formData.name}</p>)}
+        {formData.model && (<p><strong>Model:</strong> {formData.model}</p>)}
+        {formData.price && (<p><strong>Price:</strong> {formData.price}</p>)}
+        {formData.description && (<p><strong>Description:</strong> {formData.description}</p>)}
+      </div>
+    </>
   );
 };
 
 export default AddMotorbikeForm;
+12:18
+Api/v1/motorbikes_controller.rb

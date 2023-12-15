@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/images/motorcycle-logo.png';
 import twitter from '../assets/images/twitter.png';
 import facebook from '../assets/images/facebook.png';
@@ -15,10 +15,11 @@ function Navigation() {
       </div>
       <nav>
         
-      <Link to="/">Lien 1</Link>
-      <Link to="/">Lien 2</Link>
-      <Link to="/">Lien 3</Link>
-      <Link to="/motorbikes/new">Add Motorbike</Link>
+      <NavLink to="/" exact activeClassName="active">Model</NavLink>
+      <NavLink to="/reservations/new" activeClassName="active">Reserve</NavLink>
+      <NavLink to="/reservations" activeClassName="active">My reservations</NavLink>
+      <NavLink to="/motorbikes/new" activeClassName="active">Add Motorcylce</NavLink>
+      <NavLink to="/motorbikes/destroy" activeClassName="active">Delete motorcycle</NavLink>
       </nav>
       <div className="network-icon">
         <Link to="/"><img src={facebook} alt="" /></Link>
