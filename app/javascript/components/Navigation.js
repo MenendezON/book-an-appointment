@@ -19,7 +19,7 @@ function Navigation() {
       <NavLink to="/reservations/new" activeClassName="active">Reserve</NavLink>
       <NavLink to="/reservations" activeClassName="active">My reservations</NavLink>
       <NavLink to="/motorbikes/new" activeClassName="active">Add Motorcylce</NavLink>
-      <NavLink to="/motorbikes/destroy" activeClassName="active">Delete motorcycle</NavLink>
+      <NavLink to="/motorbikes/list" activeClassName="active">Delete motorcycle</NavLink>
       </nav>
       <div className="network-icon">
         <Link to="/"><img src={facebook} alt="" /></Link>

@@ -40,9 +40,7 @@ const ReservationForm = () => {
  };
 
  return (
-  <>
-    <Navigation />
-    <section>
+  
       <form onSubmit={handleSubmit}>
   <label>
     Date:
@@ -72,8 +70,6 @@ const ReservationForm = () => {
   </label>
   <input type="submit" value="Reserve" />
       </form>
-    </section>
-  </>
  );
 };
 

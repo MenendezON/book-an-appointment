@@ -31,12 +31,13 @@ const Reservation = () => {
         <section>
           <div className='reservation-page'>
             <table>
+            <caption><h2>List of my reservations</h2></caption>
               <tr>
                 <th>Date</th>
                 <th>City</th>
                 <th>Brand</th>
                 <th>Model</th>
-                <th>&nbsp;</th>
+                <th>Actions</th>
               </tr>
               {content.map((resv) => (
               <tr>

@@ -109,7 +109,7 @@ const AddMotorbikeForm = ({ onAddMotorbike }) => {
           required
         />
       </div>
-      <button type="submit">Add Motorbike</button>
+      <button type="submit" className='btn-lg active'>Add Motorbike</button>
         </form>
       </div>
       <div>
@@ -125,5 +125,3 @@ const AddMotorbikeForm = ({ onAddMotorbike }) => {
 };
 
 export default AddMotorbikeForm;
-12:18
-Api/v1/motorbikes_controller.rb

@@ -1,5 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_reservation, only: %i[show]
+
   def index
     @reservations = Reservation.includes(:motorbike, :user).where(user_id: current_user.id)
     render json: @reservations.to_json(include: { motorbike: {}, user: {} })
@@ -15,6 +17,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.user = current_user
 
     if @reservation.save
       render json: @reservation, status: :created
@@ -38,6 +41,6 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:date, :city)
+    params.require(:reservation).permit(:date, :city, :motorbike_id)
   end
 end

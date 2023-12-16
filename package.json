@@ -6,6 +6,7 @@
     "@hotwired/turbo-rails": "^8.0.0-beta.1",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.2",
+    "csurf": "^1.11.0",
     "react": "^18.2.0",
     "react-datepicker": "^4.24.0",
     "react-dom": "^18.2.0",

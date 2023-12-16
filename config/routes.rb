@@ -12,11 +12,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :motorbikes, only: %i[index create show destroy]
       resources :reservations, only: %i[index create show destroy]
+      resources :users
     end
   end
 
   # Defines the root path route ("/")
   root 'main#index'
-
-  # resources :motorbikes, only: %i[show]
 end
