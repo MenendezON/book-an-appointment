@@ -3,6 +3,19 @@ import axios from 'axios';
 
 const URL_API = 'http://127.0.0.1:3000/api/v1/motorbikes';
 
+// Async thunk for adding motorbikes
+export const addMotorbike = createAsyncThunk(
+  'motorbikes/addMotorbike',
+  async (motorbikeData, thunkAPI) => {
+    try {
+      const resp = await axios.post(API_URL, motorbikeData);
+      return resp.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
 export const getMotorbikes = createAsyncThunk(
   'motorbikes/getMotorbikes',
   async (_, thunkAPI) => {
@@ -27,7 +40,19 @@ export const motorbikeSlice = createSlice({
   reducers: { },
   extraReducers(builder) {
     builder
-      .addCase(getMotorbikes.pending, (state) => {
+     .addCase(addMotorbike.pending, (state) => {
+      state.isLoading = true;
+      state.error = undefined;
+      })
+    .addCase(addMotorbike.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.content.push(action.payload);
+     })
+    .addCase(addMotorbike.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload.motorbike;
+     })
+    .addCase(getMotorbikes.pending, (state) => {
         state.isLoading = true;
       })
 
