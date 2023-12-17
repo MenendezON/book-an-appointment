@@ -1,6 +1,6 @@
 class Api::V1::MotorbikesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_motorbike, only: %i[show]
+  before_action :set_motorbike, only: %i[show destroy]
 
   def index
     @motorbikes = Motorbike.all
@@ -9,6 +9,14 @@ class Api::V1::MotorbikesController < ApplicationController
 
   def show
     render json: @motorbike
+  end
+
+  def destroy
+    if @motorbike.destroy
+      render json: { message: 'Motorbike deleted successfully' }, status: :ok
+    else
+      render json: { error: 'Failed to delete motorbike' }, status: :unprocessable_entity
+    end
   end
 
   def create

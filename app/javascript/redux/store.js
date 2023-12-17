@@ -1,13 +1,13 @@
  import { configureStore, combineReducers } from '@reduxjs/toolkit';
  import motorbikesReducer from './motorbikes/motorbikeSlice';
  import reservationsReducer from './reservation/reservationSlice';
- import userAuthReducer from './userAuthSlice';
+ import authReducer from './user/authSlice';
  
  // Combine reducers
  const rootReducer = combineReducers({
    motorbikes: motorbikesReducer,
    reservations: reservationsReducer,
-   userAuth: userAuthReducer,
+   auth: authReducer,
  });
  
  // Create store with combined reducers

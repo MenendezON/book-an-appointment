@@ -1,6 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
+  before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
-  before_action :set_reservation, only: %i[show]
+  before_action :set_reservation, only: %i[show destroy]
 
   def index
     @reservations = Reservation.includes(:motorbike, :user).where(user_id: current_user.id)
@@ -26,18 +27,21 @@ class Api::V1::ReservationsController < ApplicationController
     end
   end
 
+  def destroy
+    if @reservation.destroy
+      render json: { message: 'Reservation deleted successfully' }, status: :ok
+    else
+      render json: { error: 'Failed to delete reservation' }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_reservation
     @reservation = Reservation.includes(:motorbike, :user).find_by(id: params[:id], user_id: current_user.id)
-    render_404('Reservation not found or does not belong to the specified user') unless @reservation
-  end
+    return unless @reservation.nil?
 
-  def render_404(message)
-    respond_to do |format|
-      format.html { render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found }
-      format.json { render json: { error: message }, status: :not_found }
-    end
+    render json: { error: 'Reservation not found or does not belong to the specified user' }, status: :not_found
   end
 
   def reservation_params
