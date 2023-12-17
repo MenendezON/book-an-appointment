@@ -9,14 +9,12 @@
  import Home from '../pages/HomePage';
  import Details from '../pages/DetailsPage';
  import Reservation from '../pages/ReservationPage';
- import ReservationForm from '../components/ReservationForm';
- import LoginPage from '../pages/LoginPage';
+ import AddReservation from '../pages/AddReservation';
  import AddMotorbike from '../pages/AddMotorbike';
  import '../assets/css/style.css';
  
  const App = () => {
    const dispatch = useDispatch();
-   const isAuthenticated = useSelector((state) => state.userAuth.isAuthenticated);
  
    useEffect(() => {
      dispatch(getMotorbikes());
@@ -26,11 +24,11 @@
    return (
      <Routes>
        <Route path="/" exact element={<Home /> } />
-       <Route path="/login" element={<LoginPage />} />
        <Route path="/motorbikes/new" element={<AddMotorbike />} />
        <Route path="/motorbikes/:id" element={<Details />} />
        <Route path="/reservations" element={<Reservation />} />
-       <Route path="/reservations/new" element={<ReservationForm />} />
+       <Route path="/reservations/new" element={<AddReservation />} />
+       <Route path="/reservations/list" element={<AddReservation />} />
      </Routes>
    );
  };

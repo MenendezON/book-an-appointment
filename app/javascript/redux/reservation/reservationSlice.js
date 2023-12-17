@@ -68,8 +68,6 @@
          state.isLoading = false;
          state.content = newContent;
        })
- 
- 
        .addCase(getReservations.rejected, (state, action) => {
          state.isLoading = false;
          state.error = action.payload.reservation;
