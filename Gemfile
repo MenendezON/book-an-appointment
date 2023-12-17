@@ -13,6 +13,14 @@ gem 'pg'
 gem 'devise'
 gem 'devise-jwt'
 
+gem 'rack-cors'
+
+gem 'rswag'
+
+gem 'rswag-api'
+
+gem 'rswag-ui'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '>= 5.0'
 
@@ -46,12 +54,16 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 group :development, :test do
-  gem 'rspec-rails'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'rswag-specs'
+  gem 'shoulda-matchers'
 end
 
-gem 'dotenv-rails', groups: %i[development test]
+gem 'faker'
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -62,10 +74,4 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-end
-
-group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'selenium-webdriver'
 end

@@ -1,21 +1,18 @@
 # config/routes.rb
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: 'sessions' }
-
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get 'up' => 'rails/health#show', as: :rails_health_check
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
 
   namespace :api do
     namespace :v1 do
-      resources :motorbikes, only: %i[index create show destroy]
-      resources :reservations, only: %i[index create show destroy]
-      resources :users
+      devise_for :users, controllers: { sessions: 'sessions' }
+      resources :motorbikes, only: %i[index show create update destroy]
+      resources :reservations, only: %i[index show create update destroy]
+      post '/login', to: 'sessions#create'
     end
   end
 
-  # Defines the root path route ("/")
+  delete '/logout', to: 'sessions#destroy'
+
   root 'main#index'
 end
