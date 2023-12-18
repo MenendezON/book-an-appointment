@@ -14,12 +14,12 @@ function Navigation() {
         <img src={logo} alt="" />
       </div>
       <nav>
-        
-      <NavLink to="/" exact activeClassName="active">Model</NavLink>
-      <NavLink to="/reservations/new" activeClassName="active">Reserve</NavLink>
-      <NavLink to="/reservations" activeClassName="active">My reservations</NavLink>
-      <NavLink to="/motorbikes/new" activeClassName="active">Add Motorcylce</NavLink>
-      <NavLink to="/motorbikes/list" activeClassName="active">Delete motorcycle</NavLink>
+
+        <NavLink to="/" exact activeClassName="active">Model</NavLink>
+        <NavLink to="/reservations/new" activeClassName="active">Reserve</NavLink>
+        <NavLink to="/reservations" activeClassName="active">My reservations</NavLink>
+        <NavLink to="/motorbikes/new" activeClassName="active">Add Motorcylce</NavLink>
+        <NavLink to="/reservations/remove" activeClassName="active">Delete motorcycle</NavLink>
       </nav>
       <div className="network-icon">
         <Link to="/"><img src={facebook} alt="" /></Link>
@@ -28,7 +28,7 @@ function Navigation() {
         <Link to="/"><img src={pinterest} alt="" /></Link>
         <Link to="/"><img src={googleplus} alt="" /></Link>
       </div>
-      <div className='copyright'>
+      <div className="copyright">
         <p>Copyright @2023</p>
       </div>
     </header>
