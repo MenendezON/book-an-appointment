@@ -10,8 +10,8 @@ gem 'sprockets-rails'
 
 gem 'pg'
 
-gem 'jwt'
 gem 'bcrypt'
+gem 'jwt'
 
 gem 'rack-cors'
 

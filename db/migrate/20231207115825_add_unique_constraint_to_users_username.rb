@@ -1,5 +1,5 @@
 class AddUniqueConstraintToUsersUsername < ActiveRecord::Migration[7.1]
-    def change
-      add_index :users, :username, unique: true
-    end
+  def change
+    add_index :users, :username, unique: true
   end
+end
