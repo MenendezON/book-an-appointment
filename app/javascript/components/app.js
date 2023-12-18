@@ -10,13 +10,21 @@
  import Reservation from '../pages/ReservationPage';
  import AddReservation from '../pages/AddReservation';
  import AddMotorbike from '../pages/AddMotorbike';
- import Signup from '../pages/Signup'; // Assuming you have a Login component
+ import SignUp from '../pages/Signup'; // Assuming you have a Login component
  import Login from '../pages/LoginPage'; // Assuming you have a Login component
  import '../assets/css/style.css';
+
+import ProtectedRoute from './ProtectionRoute';
  
  const App = () => {
    const dispatch = useDispatch();
-   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated); // Update this based on your auth state
+   const loginResponse = useSelector((state) => state.user.user.token);
+   {loginResponse ? (
+    console.log("I'm connected")
+   ):(
+    console.log("I'm on my way to connec")
+   )}
+  // const isAuthenticated = useSelector((state) => state.auth.isAuthenticated); // Update this based on your auth state
  
    useEffect(() => {
      dispatch(getMotorbikes());
@@ -25,7 +33,7 @@
  
    return (
      <Routes>
-       {isAuthenticated ? (
+       {loginResponse ? (
          <>
            <Route path="/" element={<Home />} />
            <Route path="/motorbikes/new" element={<AddMotorbike />} />
@@ -38,8 +46,23 @@
          <Route path="/" element={<Navigate to="/login" />} />
        )}
        <Route path="/login" element={<Login />} />
-       <Route path="/signup" element={<Signup />} />
+       <Route path="/signup" element={<SignUp />} />
      </Routes>
+
+    // <Routes>
+    //     {/* public Routes */}
+    //     <Route path="/" element={<Login />} />
+    //     <Route path="/signup" element={<SignUp />} />
+    //     {/* private Routes */}
+    //     <Route
+    //       path="/home"
+    //       element={(
+    //         <ProtectedRoute>
+    //           <Home />
+    //         </ProtectedRoute>
+    //     )}
+    //     />
+    //   </Routes>
    );
  };
  

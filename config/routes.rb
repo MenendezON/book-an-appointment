@@ -5,14 +5,16 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      devise_for :users, controllers: { sessions: 'sessions' }
-      resources :motorbikes, only: %i[index show create update destroy]
-      resources :reservations, only: %i[index show create update destroy]
-      post '/login', to: 'sessions#create'
+      resources :users, only: [:create]
+      resources :motorbikes, only: [:index, :show, :create, :destroy]
+      resources :reservations, only: [:index, :create] do
+        collection do
+          get ':id', action: :show
+        end
+      end
+      post '/login', to: 'auth#login'
     end
   end
-
-  delete '/logout', to: 'sessions#destroy'
 
   root 'main#index'
 end

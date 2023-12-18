@@ -1,5 +1,4 @@
 class Api::V1::MotorbikesController < ApplicationController
-  skip_before_action :verify_authenticity_token
   before_action :set_motorbike, only: %i[show destroy]
 
   def index
