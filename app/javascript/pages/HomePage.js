@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Link,
 } from 'react-router-dom';
+import { getMotorbikes } from '../redux/motorbikes/motorbikeSlice'; 
 import Navigation from '../components/Navigation';
 import loading from '../assets/images/loading.gif';
 import facebook from '../assets/images/facebook.png';
@@ -10,8 +11,13 @@ import twitter from '../assets/images/twitter.png';
 import instagram from '../assets/images/instagram.png';
 
 const Home = () => {
+  const dispatch = useDispatch();
   const { content, isLoading, error } = useSelector((store) => store.motorbikes);
   const [displayedItems, setDisplayedItems] = useState(3);
+
+  useEffect(() => {
+    dispatch(getMotorbikes());
+  }, [dispatch]);
 
   const handleShowMore = () => {
     setDisplayedItems(content.length);
@@ -20,7 +26,7 @@ const Home = () => {
   const handleShowLess = () => {
     setDisplayedItems(3);
   };
-  
+
   if (isLoading) {
     return (
       <div className='loadingPage'>
