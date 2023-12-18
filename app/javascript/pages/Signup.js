@@ -1,42 +1,70 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import {
-  Link,
-} from 'react-router-dom';
-
-const Signup = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSignup = async () => {
-    try {
-      const response = await axios.post('/api/v1/login', {
-        email: email,
-        password: password,
-      });
-
-      // Handle successful signup, e.g., display a success message
-      console.log('Signup successful', response.data);
-    } catch (error) {
-      // Handle signup error, e.g., display an error message
-      console.error('Signup failed', error);
-    }
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { createUser } from '../redux/user/userSlice';
+​
+function SignUp() {
+  const navigate = useNavigate();
+  const [dataReg, setDataReg] = useState({
+    user: {
+      username: '',
+      password: '',
+    },
+  });
+  const dispatch = useDispatch();
+  const createUserResponse = useSelector((state) => state.user.createUserMsg.token);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await dispatch(createUser(dataReg));
   };
-
+  useEffect(() => {
+    if (createUserResponse) {
+      navigate('/');
+    }
+  }, [dispatch, createUserResponse, navigate]);
+​
+  const handleUsernameChange = (e) => {
+    setDataReg({ ...dataReg, user: { ...dataReg.user, username: e.target.value } });
+  };
+  const handlePasswordChange = (e) => {
+    setDataReg({ ...dataReg, user: { ...dataReg.user, password: e.target.value } });
+  };
+​
   return (
-    <div>
-      <h2>Signup</h2>
-      <label>Email:</label>
-      <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <label>Password:</label>
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleSignup}>Signup</button>
-      <Link to='/login'>Signup</Link>
-    </div>
+    <>
+      <div className="flex items-center justify-center h-screen bg-cover bg-center" >
+        <div className="flex items-center justify-center flex-col gap-6 w-4/5 p-12 md:max-w-fit md:max-h-fit bg-white rounded-md">
+          <h1 className="text-gray-800 font-bold text-2xl">
+            Welcome to
+            <span className="text-[#97BF0F]"> Health Clinic</span>
+          </h1>
+          <h2 className="text-gray-800 font-bold text-2xl">Sign up</h2>
+          <form className="flex items-center justify-center flex-col gap-6" onSubmit={(e) => handleSubmit(e)}>
+            <input
+              required
+              id="outlined-basic"
+              type="text"
+              onChange={(e) => handleUsernameChange(e)}
+              label="Username"
+              variant="outlined"
+            />
+            <input
+              required
+              id="outlined-basics"
+              type="password"
+              onChange={(e) => handlePasswordChange(e)}
+              label="Password"
+              variant="outlined"
+            />
+            <div className="flex gap-4">
+             <Link to="/">Log in</Link>
+              <button type="submit" variant="outlined">Sign Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
   );
-};
-
-export default Signup;
+}
+​
+export default SignUp;
