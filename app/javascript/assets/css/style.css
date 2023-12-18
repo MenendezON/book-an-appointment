@@ -365,14 +365,45 @@ section.add-motorbike > div {
 
 @media only screen and (max-width: 768px) {
   body {
-    background-color: red;
     overflow: auto; /* Enable scrolling on small screens */
   }
 
   #root {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
+  #root .login{
+    display: flex;
+    background-color: #88919c;
+    border-radius: 5px;
+  }
+#root .login-form-cont{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10%;
+}
+#root .logintext{
+margin-top: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#root .form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 30px;
+}
+
+#root .btns{
+  display: flex;
+  justify-content: space-between;
+}
   #root header,
   #root section {
     width: 100%;
