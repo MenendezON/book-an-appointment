@@ -2,30 +2,29 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../redux/user/userSlice';
-​
+
 function Login() {
   const navigate = useNavigate();
   const loginResponse = useSelector((state) => state.user.user.token);
-​
+
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
-​
+
   const handleUsernameChange = (event) => {
     setUserName(event.target.value);
   };
-​
+
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
-​
+
   const dispatch = useDispatch();
-  console.log(`Login response: ${loginResponse}`)
   useEffect(() => {
     if (loginResponse) {
-      navigate('/'); // uses history object from react-router-dom
+      navigate('/');
     }
   }, [dispatch, loginResponse, navigate]);
-​
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     await dispatch(loginUser({
@@ -33,7 +32,7 @@ function Login() {
       password,
     }));
   };
-​
+
   return (
     <>
       <div className="flex items-center justify-center h-screen bg-cover bg-center">
@@ -72,5 +71,5 @@ function Login() {
     </>
   );
 }
-​
+
 export default Login;

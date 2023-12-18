@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUser } from '../redux/user/userSlice';
-​
+
 function SignUp() {
   const navigate = useNavigate();
   const [dataReg, setDataReg] = useState({
@@ -22,14 +22,14 @@ function SignUp() {
       navigate('/');
     }
   }, [dispatch, createUserResponse, navigate]);
-​
+
   const handleUsernameChange = (e) => {
     setDataReg({ ...dataReg, user: { ...dataReg.user, username: e.target.value } });
   };
   const handlePasswordChange = (e) => {
     setDataReg({ ...dataReg, user: { ...dataReg.user, password: e.target.value } });
   };
-​
+
   return (
     <>
       <div className="flex items-center justify-center h-screen bg-cover bg-center" >
@@ -66,5 +66,5 @@ function SignUp() {
     </>
   );
 }
-​
+
 export default SignUp;
