@@ -1,39 +1,76 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import {
-  Link,
-} from 'react-router-dom';
-
-const Login = () => {
-  const [email, setEmail] = useState('');
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { loginUser } from '../redux/user/userSlice';
+​
+function Login() {
+  const navigate = useNavigate();
+  const loginResponse = useSelector((state) => state.user.user.token);
+​
+  const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post('/users', {
-        email: email,
-        password: password,
-      });
-
-      // Handle successful login, e.g., store the token in localStorage
-      console.log('Login successful', response.data.token);
-    } catch (error) {
-      // Handle login error, e.g., display an error message
-      console.error('Login failed', error);
-    }
+​
+  const handleUsernameChange = (event) => {
+    setUserName(event.target.value);
   };
-
+​
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+​
+  const dispatch = useDispatch();
+  console.log(`Login response: ${loginResponse}`)
+  useEffect(() => {
+    if (loginResponse) {
+      navigate('/'); // uses history object from react-router-dom
+    }
+  }, [dispatch, loginResponse, navigate]);
+​
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    await dispatch(loginUser({
+      username: userName,
+      password,
+    }));
+  };
+​
   return (
-    <div>
-      <h2>Login</h2>
-      <label>Email:</label>
-      <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <label>Password:</label>
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleLogin}>Login</button>
-      <Link to='/signup'>Signup</Link>
-    </div>
+    <>
+      <div className="flex items-center justify-center h-screen bg-cover bg-center">
+        <div className="flex items-center justify-center flex-col gap-6 w-4/5 p-12 md:max-w-fit md:max-h-fit bg-white rounded-md">
+          <h1 className="text-gray-800 font-bold text-2xl">
+            Welcome to
+            <span className="text-[#97BF0F]"> Health Clinic</span>
+          </h1>
+          <h2 className="text-gray-800 font-bold text-2xl">Log in</h2>
+          <form className="flex items-center justify-center flex-col gap-6" onSubmit={(e) => handleSubmit(e)}>
+            <input
+              required
+              id="outlined-basics"
+              type="text"
+              value={userName}
+              onChange={(e) => handleUsernameChange(e)}
+              label="Username"
+              variant="outlined"
+            />
+            <input
+              required
+              id="outlined-basic"
+              type="password"
+              value={password}
+              onChange={(e) => handlePasswordChange(e)}
+              label="Password"
+              variant="outlined"
+            />
+            <div className="flex gap-4">
+              <button type="submit" variant="outlined">Login</button>
+              <Link to="/signup">Sign up</Link>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
   );
-};
-
+}
+​
 export default Login;
