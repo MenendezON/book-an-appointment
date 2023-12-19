@@ -4,19 +4,6 @@ import axios from 'axios';
 const URL_API = '/api/v1/reservations';
 const bearerToken = JSON.parse(localStorage.getItem('acess-token'))
 
-// Async thunk for adding reservations
-// export const addReservation = createAsyncThunk(
-//   'reservations/addReservation',
-//   async (reservationData, thunkAPI) => {
-//     try {
-//       const resp = await axios.post(API_URL, reservationData);
-//       return resp.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error);
-//     }
-//   },
-// );
-
 export const addReservation = createAsyncThunk('reservations/addReservation', async (reservationData) => {
   try {
     const response = await fetch(url, {
@@ -38,7 +25,6 @@ export const addReservation = createAsyncThunk('reservations/addReservation', as
   }
 });
 
-
 export const getReservations = createAsyncThunk(
   'reservations/getReservations',
   async (_, thunkAPI) => {
@@ -50,10 +36,6 @@ export const getReservations = createAsyncThunk(
           Authorization: `Bearer ${JSON.parse(localStorage.getItem('acess-token'))?.token}`,
         },
       });
-
-      console.log('Request Headers:', resp.config.headers);
-      console.log('API Response:', resp.data);
-      console.log('API Response:', resp);
 
       return resp.data;
     } catch (error) {
