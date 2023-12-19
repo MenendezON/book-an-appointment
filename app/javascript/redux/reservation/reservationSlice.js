@@ -1,7 +1,7 @@
  import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
  import axios from 'axios';
  
- const URL_API = 'http://127.0.0.1:3000/api/v1/reservations';
+ const URL_API = '/api/v1/reservations';
  
  // Async thunk for adding reservations
  export const addReservation = createAsyncThunk(
@@ -15,18 +15,33 @@
      }
    },
  );
- 
+
+ const getBearerToken = () => {
+  return localStorage.getItem('user');
+};
+
  export const getReservations = createAsyncThunk(
-   'reservations/getReservations',
-   async (_, thunkAPI) => {
-     try {
-       const resp = await axios.get(URL_API);
-       return resp.data;
-     } catch (error) {
-       return thunkAPI.rejectWithValue(error);
-     }
-   },
- );
+  'reservations/getReservations',
+  async (_, thunkAPI) => {
+    try {
+      const bearerToken = getBearerToken();
+      console.log('BearerToken:', bearerToken);
+      const resp = await axios.get(URL_API, {
+        headers: {
+          Authorization: `Bearer ${bearerToken}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      console.log('Request Headers:', resp.config.headers);
+      console.log('API Response:', resp);
+
+      return resp.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
  
  const initialState = {
    content: [],

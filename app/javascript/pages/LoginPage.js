@@ -19,10 +19,9 @@ function Login() {
   };
 
   const dispatch = useDispatch();
-  console.log(`Login response: ${loginResponse}`)
   useEffect(() => {
     if (loginResponse) {
-      navigate('/'); // uses history object from react-router-dom
+      navigate('/');
     }
   }, [dispatch, loginResponse, navigate]);
 

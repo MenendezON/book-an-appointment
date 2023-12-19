@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Link,
 } from 'react-router-dom';
 import Navigation from '../components/Navigation';
+import { getReservations } from '../redux/reservation/reservationSlice'
 import loading from '../assets/images/loading.gif';
 
 const Reservation = () => {
+  const dispatch = useDispatch();
   const { content, isLoading, error } = useSelector((store) => store.reservations);
+
+  useEffect(() => {
+    dispatch(getReservations());
+  }, [dispatch]);
   
   if (isLoading) {
     return (
@@ -45,7 +51,7 @@ const Reservation = () => {
                 <td>{resv.city}</td>
                 <td>{resv.motorbike.name}</td>
                 <td>{resv.motorbike.model}</td>
-                <td><Link to={`/motorbikes/${resv.motorbike.id}`} key={resv.motorbike.id}>View</Link></td>
+                {/* <td><Link to={`/motorbikes/${resv.motorbike.id}`} key={resv.motorbike.id}>View</Link></td> */}
               </tr>
             ))}
               </table>

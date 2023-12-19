@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUser } from '../redux/user/userSlice';
+
 function SignUp() {
   const navigate = useNavigate();
   const [dataReg, setDataReg] = useState({

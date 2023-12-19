@@ -1,10 +1,14 @@
 class Api::V1::ReservationsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authorize_request
   before_action :set_reservation, only: %i[show destroy]
 
   def index
-    @reservations = Reservation.includes(:motorbike, :user).where(user_id: current_user.id)
+    @reservations = Reservation.includes(:motorbike, :user)
     render json: @reservations.to_json(include: { motorbike: {}, user: {} })
+    # @reservations = @current_user.reservations
+    # render json: @reservations
+    # @reservations = Reservation.includes(:motorbike, :user).where(user_id: 1)
+    # render json: @reservations.to_json(include: { motorbike: {}, user: {} })
   end
 
   def show
