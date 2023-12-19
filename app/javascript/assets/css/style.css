@@ -572,4 +572,24 @@ display: flex;
   .loadng{
     display: none;
   }
+  .motos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none;
+    margin-top: 15px;
+    gap: 10px;
+  }
+  .item{
+    display: flex;
+    justify-content: space-between;
+    gap: 70px;
+  }
+  .deletebtn{
+    background-color: #5fb523;
+    font: 1em sans-serif;
+    color: white;
+    border: none;
+    padding: 5px;
+  }
 }

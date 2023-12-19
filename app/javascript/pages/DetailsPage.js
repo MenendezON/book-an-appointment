@@ -18,7 +18,7 @@ const Details = () => {
     <Navigation />
     <section>
     {mbk.length === 0 ? (
-      <p>No motorbike found with the specified ID</p>
+      <p>No motorbike found with the specific ID</p>
       ) : (
         <>
         <div className='leftPart'>
