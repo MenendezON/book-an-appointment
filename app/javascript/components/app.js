@@ -2,7 +2,7 @@
  import { Routes, Route, Navigate } from 'react-router-dom';
  import { useDispatch, useSelector } from 'react-redux';
  import { useEffect } from 'react';
- import { getMotorbikes } from '../redux/motorbikes/motorbikeSlice';
+ import { getMotorbikes} from '../redux/motorbikes/motorbikeSlice';
  import { getReservations } from '../redux/reservation/reservationSlice';
  
  import Home from '../pages/HomePage';
@@ -12,6 +12,7 @@
  import AddMotorbike from '../pages/AddMotorbike';
  import SignUp from '../pages/Signup';
  import Login from '../pages/LoginPage';
+ import MotorbikeList from './MotorbikeList';
  import '../assets/css/style.css';
 
 import ProtectedRoute from './ProtectionRoute';
@@ -35,6 +36,8 @@ import ProtectedRoute from './ProtectionRoute';
            <Route path="/reservations" element={<Reservation />} />
            <Route path="/reservations/new" element={<AddReservation />} />
            <Route path="/reservations/list" element={<AddReservation />} />
+           <Route path="/motorbikes/list" element={<MotorbikeList />} />
+
          </>
        ) : (
          <Route path="/" element={<Navigate to="/login" />} />
@@ -42,6 +45,7 @@ import ProtectedRoute from './ProtectionRoute';
        <Route path="/login" element={<Login />} />
        <Route path="/signup" element={<SignUp />} />
      </Routes>
+
    );
  };
  
