@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMotorbikes, deleteMotorbike } from '../redux/motorbikes/motorbikeSlice';
 import Navigation from './Navigation';
 
+import '../assets/css/MotorbikeList.css'; // Import your custom CSS file
+
 const MotorbikeList = () => {
   const dispatch = useDispatch();
   const motorbikes = useSelector((state) => state.motorbikes.content);
@@ -18,17 +20,21 @@ const MotorbikeList = () => {
   return (
     <>
       <Navigation />
-    <div>
-      <h2>Delete Motorbikes</h2>
-      <ul className="motos">
-        {motorbikes.map((motorbike) => (
-          <li key={motorbike.id} className='item'>
-            {motorbike.model}{} {motorbike.name}{' '}
-            <button onClick={() => handleDelete(motorbike.id)} className='deletebtn'>Delete</button>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <div className="motorbike-list-container">
+        <h2>Delete Motorbikes</h2>
+        <ul className="motorbikes">
+          {motorbikes.map((motorbike) => (
+            <li key={motorbike.id} className="motorbike-item">
+              <span className="motorbike-info">
+                {motorbike.model} {motorbike.name}
+              </span>
+              <button onClick={() => handleDelete(motorbike.id)} className="delete-btn">
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };

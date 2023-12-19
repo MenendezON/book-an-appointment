@@ -17,7 +17,7 @@ development:
   database: bike_appointments
   username: postgres
   host: localhost
-  password: root
+  password: Postgre
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -29,7 +29,7 @@ test:
   database: bike_appointments_test
   username: postgres
   host: localhost
-  password: root
+  password: Postgre
 
 production:
   <<: *default

@@ -1,0 +1,33 @@
+/* MotorbikeList.css */
+
+.motorbike-list-container {
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+}
+
+.motorbikes {
+  list-style: none;
+  padding: 0 25px;
+}
+
+.motorbike-item {
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.motorbike-info {
+  flex: 1;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
