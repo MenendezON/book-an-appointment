@@ -1,5 +1,3 @@
-// MotorbikeList.js
-
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMotorbikes, deleteMotorbike } from '../redux/motorbikes/motorbikeSlice';
@@ -14,7 +12,6 @@ const MotorbikeList = () => {
   }, [dispatch]);
 
   const handleDelete = (motorbikeId) => {
-    // Dispatch the deleteMotorbike action with the motorbikeId
     dispatch(deleteMotorbike(motorbikeId));
   };
 
