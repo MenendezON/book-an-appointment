@@ -2,11 +2,10 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const URL_API = '/api/v1/reservations';
-const bearerToken = JSON.parse(localStorage.getItem('acess-token'))
 
 export const addReservation = createAsyncThunk('reservations/addReservation', async (reservationData) => {
   try {
-    const response = await fetch(url, {
+    const response = await fetch(URL_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +28,6 @@ export const getReservations = createAsyncThunk(
   'reservations/getReservations',
   async (_, thunkAPI) => {
     try {
-      console.log('BearerToken:', bearerToken);
       const resp = await axios.get(URL_API, {
         headers: {
           'Content-Type': 'application/json',

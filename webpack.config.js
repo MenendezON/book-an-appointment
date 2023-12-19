@@ -25,7 +25,7 @@ module.exports = {
             loader: 'file-loader',
           },
         ],
-      }
+      },
     ],
   },
   output: {

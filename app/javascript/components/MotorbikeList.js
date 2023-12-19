@@ -18,17 +18,29 @@ const MotorbikeList = () => {
   return (
     <>
       <Navigation />
-    <div>
-      <h2>Delete Motorbikes</h2>
-      <ul className="motos">
-        {motorbikes.map((motorbike) => (
-          <li key={motorbike.id} className='item'>
-            {motorbike.model}{} {motorbike.name}{' '}
-            <button onClick={() => handleDelete(motorbike.id)} className='deletebtn'>Delete</button>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <section className="delete-motorbike">
+        <div>
+          <h2>Delete Motorbikes</h2>
+          <ul className="motos">
+            {motorbikes.map((motorbike) => (
+              <div key={motorbike.id} className="box">
+                <div>
+                  <img src={motorbike.image} alt={motorbike.name} />
+                </div>
+                <div>
+                  <h3>
+                    {motorbike.name}
+                    {' '}
+                    {motorbike.model}
+                  </h3>
+                  <button type="button" onClick={() => handleDelete(motorbike.id)} className="btn">Delete</button>
+                </div>
+              </div>
+            ))}
+          </ul>
+        </div>
+      </section>
+
     </>
   );
 };

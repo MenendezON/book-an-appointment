@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const AddReservationForm = ({ onAddReservation }) => {
   const [formData, setFormData] = useState({
@@ -66,42 +67,61 @@ const AddReservationForm = ({ onAddReservation }) => {
         <h2>Make a reservation</h2>
         <form onSubmit={handleSubmit}>
           <div>
-          <label>Date:</label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              required
-            />
-          {formErrors.date && <p className="error">{formErrors.date}</p>}
+            <label htmlFor="date">
+              Date:
+              <input
+                type="date"
+                id="date"
+                name="date"
+                value={formData.date}
+                onChange={handleChange}
+                required
+              />
+            </label>
+            {formErrors.date && <p className="error">{formErrors.date}</p>}
           </div>
           <div>
-          <label>City:</label>
-            <select name="city" onChange={handleChange} defaultValue="placeholder" required>
-              <option value="placeholder" disabled>Chose from the list.</option>
-              {cities.map((city, index) => (
-                <option key={index} value={city.name}>{city.country} - {city.name}</option>
-              ))}
-            </select>
+            <label htmlFor="city">
+              City:
+              <select htmlFor="city" name="city" onChange={handleChange} defaultValue="placeholder" required>
+                <option value="placeholder" disabled>Chose from the list.</option>
+                {cities.map((city) => (
+                  <option key={city} value={city.name}>
+                    {city.country}
+                    {' '}
+                    -
+                    {' '}
+                    {city.name}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
           <div>
-          <label>Motorbike:</label>
-            <select name='motorbike_id' onChange={handleChange} defaultValue="placeholder" required>
-              <option value="placeholder" disabled>Chose from the list.</option>
-              {content.map((mtb, index) => (
-                <option key={index} value={mtb.id}>
-                  {mtb.name} - {mtb.model}
-                </option>
-              ))}
-            </select>
+            <label htmlFor="motorbike">
+              Motorbike:
+              <select id="motorbike" name="motorbike_id" onChange={handleChange} defaultValue="placeholder" required>
+                <option value="placeholder" disabled>Chose from the list.</option>
+                {content.map((mtb) => (
+                  <option key={mtb} value={mtb.id}>
+                    {mtb.name}
+                    {' '}
+                    -
+                    {mtb.model}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
-          <button type="submit" className='btn-lg active'>Reserve &gt;&gt;</button>
+          <button type="submit" className="btn-lg active">Reserve &gt;&gt;</button>
         </form>
       </div>
     </>
   );
+};
+
+AddReservationForm.propTypes = {
+  onAddReservation: PropTypes.func.isRequired,
 };
 
 export default AddReservationForm;

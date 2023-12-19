@@ -17,47 +17,46 @@ function Navigation() {
 
   return (
     <>
-    <header>
-      <div className="logo">
-        <img src={logo} alt="" />
-      </div>
-      <div>
-      <button className="toggle-button" onClick={toggleNav}>
-        ☰
-      </button>
-      <nav className={`nav-links ${isNavOpen ? 'open' : ''}`}>
-        <NavLink to="/" exact activeClassName="active" onClick={toggleNav}>
-          Model
-        </NavLink>
-        <NavLink to="/reservations/new" activeClassName="active" onClick={toggleNav}>
-          Reserve
-        </NavLink>
-        <NavLink to="/reservations" activeClassName="active" onClick={toggleNav}>
-          My reservations
-        </NavLink>
-        <NavLink to="/motorbikes/new" activeClassName="active" onClick={toggleNav}>
-          Add Motorcycle
-        </NavLink>
-        <NavLink to="/motorbikes/list" activeClassName="active" onClick={toggleNav}>
-          Delete motorcycle
-        </NavLink>
+      <header>
+        <div className="logo">
+          <img src={logo} alt="" />
+        </div>
+        <div>
+          <button type="button" className="toggle-button" onClick={toggleNav}>
+            ☰
+          </button>
+          <nav className={`nav-links ${isNavOpen ? 'open' : ''}`}>
+            <NavLink to="/" exact activeClassName="active" onClick={toggleNav}>
+              Model
+            </NavLink>
+            <NavLink to="/reservations/new" activeClassName="active" onClick={toggleNav}>
+              Reserve
+            </NavLink>
+            <NavLink to="/reservations" activeClassName="active" onClick={toggleNav}>
+              My reservations
+            </NavLink>
+            <NavLink to="/motorbikes/new" activeClassName="active" onClick={toggleNav}>
+              Add Motorcycle
+            </NavLink>
+            <NavLink to="/motorbikes/list" activeClassName="active" onClick={toggleNav}>
+              Delete motorcycle
+            </NavLink>
           </nav>
-      </div>
-      
-    
-          <div className="loadng network-icon">
-        <Link to="/"><img src={facebook} alt="" /></Link>
-        <Link to="/"><img src={twitter} alt="" /></Link>
-        <Link to="/"><img src={github} alt="" /></Link>
-        <Link to="/"><img src={pinterest} alt="" /></Link>
-        <Link to="/"><img src={googleplus} alt="" /></Link>
-      </div>
-      <div className="loadng copyright">
-        <p>Copyright @2023</p>
-      </div>
+        </div>
+
+        <div className="loadng network-icon">
+          <Link to="/"><img src={facebook} alt="" /></Link>
+          <Link to="/"><img src={twitter} alt="" /></Link>
+          <Link to="/"><img src={github} alt="" /></Link>
+          <Link to="/"><img src={pinterest} alt="" /></Link>
+          <Link to="/"><img src={googleplus} alt="" /></Link>
+        </div>
+        <div className="loadng copyright">
+          <p>Copyright @2023</p>
+        </div>
       </header>
-      </>
-    
+    </>
+
   );
 }
 

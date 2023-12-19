@@ -37,8 +37,8 @@ function Login() {
     <>
       <div className=" login">
         <div className="login-form-cont">
-         <h2 className=" logintext">Log in</h2>
-         <p>&nbsp;</p>
+          <h2 className=" logintext">Log in</h2>
+          <p>&nbsp;</p>
           <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <input
               required
@@ -47,7 +47,6 @@ function Login() {
               value={userName}
               onChange={(e) => handleUsernameChange(e)}
               label="Username"
-              variant="outlined"
               placeholder="Username"
             />
             <input
@@ -57,12 +56,14 @@ function Login() {
               value={password}
               onChange={(e) => handlePasswordChange(e)}
               label="Password"
-              variant="outlined"
               placeholder="Password"
             />
-              <button type="submit" variant="outlined" className='btn-lg active'>Login</button>
+            <button type="submit" className="btn-lg active">Login</button>
           </form>
-          <p>Don't have an account? <Link to="/signup" >Sign up</Link></p>
+          <p>
+            Don&apos;t have an account?
+            <Link to="/signup">Sign up</Link>
+          </p>
         </div>
       </div>
     </>

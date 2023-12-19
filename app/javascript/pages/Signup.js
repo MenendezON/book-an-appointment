@@ -32,10 +32,10 @@ function SignUp() {
 
   return (
     <>
-      <div className="login" >
+      <div className="login">
         <div className="login-form-cont">
           <h2 className="logintext">Sign up</h2>
-         <p>&nbsp;</p>
+          <p>&nbsp;</p>
           <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <input
               required
@@ -43,7 +43,6 @@ function SignUp() {
               type="text"
               onChange={(e) => handleUsernameChange(e)}
               label="Username"
-              variant="outlined"
               placeholder="Insert a username"
             />
             <input
@@ -52,12 +51,14 @@ function SignUp() {
               type="password"
               onChange={(e) => handlePasswordChange(e)}
               label="Password"
-              variant="outlined"
               placeholder="Insert a password"
             />
-              <button type="submit" variant="outlined">Sign Up</button>
+            <button type="submit">Sign Up</button>
           </form>
-          <p>Already have an account? <Link to="/">Log in</Link></p>
+          <p>
+            Already have an account?
+            <Link to="/">Log in</Link>
+          </p>
         </div>
       </div>
     </>

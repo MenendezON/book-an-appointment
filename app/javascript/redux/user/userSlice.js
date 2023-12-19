@@ -2,11 +2,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const url = '/api/v1';
 
-const datatest = { user: { username: 'example@example.com', password: 'password123' } };
 const createUser = createAsyncThunk('user/createUser', async (datatest) => {
   try {
-    console.log(`${url}/users`);
-    console.log(datatest);
     const response = await fetch(`${url}/users`, {
       method: 'POST',
       headers: {
@@ -14,13 +11,6 @@ const createUser = createAsyncThunk('user/createUser', async (datatest) => {
       },
       body: JSON.stringify(datatest),
     });
-
-    if (!response.ok) {
-      const responseBody = await response.json();
-      console.error('Error:', response.status, responseBody);
-    } else {
-      console.log('process successful response');
-    }
 
     return await response.json();
   } catch (error) {
@@ -40,8 +30,6 @@ const loginUser = createAsyncThunk('user/loginUser', async (dataT) => {
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
-    }else {
-      console.log('process successful response');
     }
 
     return await response.json();
