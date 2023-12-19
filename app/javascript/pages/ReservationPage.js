@@ -51,7 +51,7 @@ const Reservation = () => {
                 <td>{resv.city}</td>
                 <td>{resv.motorbike.name}</td>
                 <td>{resv.motorbike.model}</td>
-                {/* <td><Link to={`/motorbikes/${resv.motorbike.id}`} key={resv.motorbike.id}>View</Link></td> */}
+                <td><Link to={`/motorbikes/${resv.motorbike.id}`} key={resv.motorbike.id}>View</Link></td>
               </tr>
             ))}
               </table>

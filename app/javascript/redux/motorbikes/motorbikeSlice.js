@@ -28,6 +28,19 @@ export const getMotorbikes = createAsyncThunk(
   },
 );
 
+export const deleteMotorbike = createAsyncThunk(
+  'motorbikes/deleteMotorbike',
+  async (motorbikeId, thunkAPI) => {
+    try {
+      await axios.delete(`${URL_API}/${motorbikeId}`);
+      return motorbikeId;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
+
 const initialState = {
   content: [],
   isLoading: false,
@@ -40,6 +53,17 @@ export const motorbikeSlice = createSlice({
   reducers: { },
   extraReducers(builder) {
     builder
+    .addCase(deleteMotorbike.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.content = state.content.filter(
+        (motorbike) => motorbike.id !== action.payload
+      );
+    })
+    
+    .addCase(deleteMotorbike.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload.motorbike;
+    })
      .addCase(addMotorbike.pending, (state) => {
       state.isLoading = true;
       state.error = undefined;
@@ -74,6 +98,8 @@ export const motorbikeSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload.motorbike;
       });
+      
+   
   },
 });
 
