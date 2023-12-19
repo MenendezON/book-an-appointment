@@ -1,5 +1,5 @@
 class Api::V1::ReservationsController < ApplicationController
-  #before_action :authorize_request
+  # before_action :authorize_request
   before_action :set_reservation, only: %i[show destroy]
 
   def index
