@@ -45,14 +45,14 @@ function Navigation() {
       </div>
       
     
-          <div className="network-icon">
+          <div className="loadng network-icon">
         <Link to="/"><img src={facebook} alt="" /></Link>
         <Link to="/"><img src={twitter} alt="" /></Link>
         <Link to="/"><img src={github} alt="" /></Link>
         <Link to="/"><img src={pinterest} alt="" /></Link>
         <Link to="/"><img src={googleplus} alt="" /></Link>
       </div>
-      <div className='copyright'>
+      <div className="loadng copyright">
         <p>Copyright @2023</p>
       </div>
       </header>

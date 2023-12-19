@@ -455,6 +455,12 @@ align-items: center;
     text-transform: uppercase;
     font-weight: bold;
   }
+
+  header .network-icon {
+    display: none;
+ 
+  }
+
 #root .model-cards{
     display: flex;
     flex-direction: column;
@@ -531,10 +537,9 @@ display: flex;
     height: 150px;
   }
 
-  .add-motorbike > div:last-child > * {
-    width: calc(100% - 20px);
+  .add-motorbike > div:last-child {
+      display: none;
   }
-
   /* Reservation page */
   .reservation-page {
     width: 100%;
@@ -563,5 +568,8 @@ display: flex;
   }
   .network-icon{
     display: flex;
+  }
+  .loadng{
+    display: none;
   }
 }
