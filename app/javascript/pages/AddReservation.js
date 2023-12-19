@@ -10,14 +10,11 @@ const AddReservation = () => {
 
   const handleAddReservation = (reservationData) => {
     dispatch(addReservation(reservationData));
-    const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
-
-    console.log('Reservation data:', reservationData);
-    console.log('My token:', csrfToken);
-
+    
     axios.post('/api/v1/reservations', reservationData, {
       headers: {
-        'CSRF-Token': csrfToken,
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem('acess-token'))?.token}`,
       },
     })
       .then(resp => {
