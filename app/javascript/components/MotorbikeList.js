@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMotorbikes, deleteMotorbike } from '../redux/motorbikes/motorbikeSlice';
 import Navigation from './Navigation';
 
-import '../assets/css/MotorbikeList.css'; // Import your custom CSS file
+import '../assets/css/MotorbikeList.css';
 
 const MotorbikeList = () => {
   const dispatch = useDispatch();

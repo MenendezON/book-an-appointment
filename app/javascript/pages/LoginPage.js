@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../redux/user/userSlice';
 
+import '../assets/css/login.css'; 
+
 function Login() {
   const navigate = useNavigate();
   const loginResponse = useSelector((state) => state.user.user.token);
@@ -35,30 +37,26 @@ function Login() {
 
   return (
     <>
-      <div className=" login">
+      <div className="login-container">
         <div className="login-form-cont">
-         <h2 className=" logintext text-gray-800 font-bold text-2xl">Log in</h2>
-          <form className="form" onSubmit={(e) => handleSubmit(e)}>
+          <h2 className="logintext text-gray-800 font-bold text-2xl">Log in</h2>
+          <form className="login-form" onSubmit={(e) => handleSubmit(e)}>
             <input
               required
-              id="outlined-basics"
               type="text"
               value={userName}
               onChange={(e) => handleUsernameChange(e)}
-              label="Username"
-              variant="outlined"
+              placeholder="Username"
             />
             <input
               required
-              id="outlined-basic"
               type="password"
               value={password}
               onChange={(e) => handlePasswordChange(e)}
-              label="Password"
-              variant="outlined"
+              placeholder="Password"
             />
             <div className="btns">
-              <button type="submit" variant="outlined">Login</button>
+              <button type="submit">Login</button>
               <Link to="/signup">Sign up</Link>
             </div>
           </form>
