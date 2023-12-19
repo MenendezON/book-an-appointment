@@ -32,14 +32,10 @@ function SignUp() {
 
   return (
     <>
-      <div className="flex items-center justify-center h-screen bg-cover bg-center" >
-        <div className="flex items-center justify-center flex-col gap-6 w-4/5 p-12 md:max-w-fit md:max-h-fit bg-white rounded-md">
-          <h1 className="text-gray-800 font-bold text-2xl">
-            Welcome to
-            <span className="text-[#97BF0F]"> Health Clinic</span>
-          </h1>
-          <h2 className="text-gray-800 font-bold text-2xl">Sign up</h2>
-          <form className="flex items-center justify-center flex-col gap-6" onSubmit={(e) => handleSubmit(e)}>
+      <div className="login" >
+        <div className="login-form-cont">
+          <h2 className="logintext text-gray-800 font-bold text-2xl">Sign up</h2>
+          <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <input
               required
               id="outlined-basic"
@@ -56,7 +52,7 @@ function SignUp() {
               label="Password"
               variant="outlined"
             />
-            <div className="flex gap-4">
+            <div className="btns">
              <Link to="/">Log in</Link>
               <button type="submit" variant="outlined">Sign Up</button>
             </div>
