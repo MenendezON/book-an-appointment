@@ -49,20 +49,7 @@ import ProtectedRoute from './ProtectionRoute';
        <Route path="/signup" element={<SignUp />} />
      </Routes>
 
-    // <Routes>
-    //     {/* public Routes */}
-    //     <Route path="/" element={<Login />} />
-    //     <Route path="/signup" element={<SignUp />} />
-    //     {/* private Routes */}
-    //     <Route
-    //       path="/home"
-    //       element={(
-    //         <ProtectedRoute>
-    //           <Home />
-    //         </ProtectedRoute>
-    //     )}
-    //     />
-    //   </Routes>
+   
    );
  };
  

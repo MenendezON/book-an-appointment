@@ -46,7 +46,7 @@ const Home = () => {
     return (
       <>
       <Navigation />
-        <section>
+        <section className='model-cards'>
         <div className='left_nav'>
         {displayedItems > 3 ? (
           <div class="btn active" onClick={handleShowLess}>&lt;</div>
