@@ -8,7 +8,7 @@ export const addMotorbike = createAsyncThunk(
   'motorbikes/addMotorbike',
   async (motorbikeData, thunkAPI) => {
     try {
-      const resp = await axios.post(API_URL, motorbikeData);
+      const resp = await axios.post(URL_API, motorbikeData);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -28,6 +28,18 @@ export const getMotorbikes = createAsyncThunk(
   },
 );
 
+export const deleteMotorbike = createAsyncThunk(
+  'motorbikes/deleteMotorbike',
+  async (motorbikeId, thunkAPI) => {
+    try {
+      await axios.delete(`${URL_API}/${motorbikeId}`);
+      return motorbikeId;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
 const initialState = {
   content: [],
   isLoading: false,
@@ -40,19 +52,30 @@ export const motorbikeSlice = createSlice({
   reducers: { },
   extraReducers(builder) {
     builder
-     .addCase(addMotorbike.pending, (state) => {
-      state.isLoading = true;
-      state.error = undefined;
+      .addCase(deleteMotorbike.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.content = state.content.filter(
+          (motorbike) => motorbike.id !== action.payload,
+        );
       })
-    .addCase(addMotorbike.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.content.push(action.payload);
-     })
-    .addCase(addMotorbike.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload.motorbike;
-     })
-    .addCase(getMotorbikes.pending, (state) => {
+
+      .addCase(deleteMotorbike.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload.motorbike;
+      })
+      .addCase(addMotorbike.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(addMotorbike.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.content.push(action.payload);
+      })
+      .addCase(addMotorbike.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload.motorbike;
+      })
+      .addCase(getMotorbikes.pending, (state) => {
         state.isLoading = true;
       })
 
@@ -68,7 +91,6 @@ export const motorbikeSlice = createSlice({
         state.isLoading = false;
         state.content = newContent;
       })
-
 
       .addCase(getMotorbikes.rejected, (state, action) => {
         state.isLoading = false;
