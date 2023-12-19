@@ -68,7 +68,7 @@ const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
-        localStorage.setItem('user', JSON.stringify(action.payload));
+        localStorage.setItem('acess-token', JSON.stringify(action.payload));
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
@@ -80,6 +80,7 @@ const userSlice = createSlice({
       .addCase(createUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.createUserMsg = action.payload;
+        localStorage.setItem('acess-token', JSON.stringify(action.payload));
       })
       .addCase(createUser.rejected, (state, action) => {
         state.isLoading = false;

@@ -52,7 +52,7 @@ const AddReservationForm = ({ onAddReservation }) => {
       setFormData({
         date: '',
         city: '',
-        motorbike: '',
+        motorbike_id: '',
       });
     } else {
       // Set form errors
