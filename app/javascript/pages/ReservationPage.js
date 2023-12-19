@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  Link,
-} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import { getReservations } from '../redux/reservation/reservationSlice'
 import loading from '../assets/images/loading.gif';

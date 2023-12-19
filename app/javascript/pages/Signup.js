@@ -34,7 +34,8 @@ function SignUp() {
     <>
       <div className="login" >
         <div className="login-form-cont">
-          <h2 className="logintext text-gray-800 font-bold text-2xl">Sign up</h2>
+          <h2 className="logintext">Sign up</h2>
+         <p>&nbsp;</p>
           <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <input
               required
@@ -43,6 +44,7 @@ function SignUp() {
               onChange={(e) => handleUsernameChange(e)}
               label="Username"
               variant="outlined"
+              placeholder="Insert a username"
             />
             <input
               required
@@ -51,12 +53,11 @@ function SignUp() {
               onChange={(e) => handlePasswordChange(e)}
               label="Password"
               variant="outlined"
+              placeholder="Insert a password"
             />
-            <div className="btns">
-             <Link to="/">Log in</Link>
               <button type="submit" variant="outlined">Sign Up</button>
-            </div>
           </form>
+          <p>Already have an account? <Link to="/">Log in</Link></p>
         </div>
       </div>
     </>

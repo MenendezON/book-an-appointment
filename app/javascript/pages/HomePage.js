@@ -20,7 +20,11 @@ const Home = () => {
   }, [dispatch]);
 
   const handleShowMore = () => {
-    setDisplayedItems(content.length);
+    if(displayedItems>content.length){
+      setDisplayedItems(content.length);
+    }else{
+      setDisplayedItems(displayedItems+3);
+    }
   };
 
   const handleShowLess = () => {

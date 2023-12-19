@@ -79,17 +79,17 @@ const AddReservationForm = ({ onAddReservation }) => {
           </div>
           <div>
           <label>City:</label>
-            <select name="city" value={formData.city} onChange={handleChange}>
+            <select name="city" onChange={handleChange} defaultValue="placeholder" required>
+              <option value="placeholder" disabled>Chose from the list.</option>
               {cities.map((city, index) => (
-                <option key={index} value={city.name}>
-                  {city.country} - {city.name}
-                </option>
+                <option key={index} value={city.name}>{city.country} - {city.name}</option>
               ))}
             </select>
           </div>
           <div>
           <label>Motorbike:</label>
-            <select name='motorbike_id' value={formData.motorbike_id} onChange={handleChange}>
+            <select name='motorbike_id' onChange={handleChange} defaultValue="placeholder" required>
+              <option value="placeholder" disabled>Chose from the list.</option>
               {content.map((mtb, index) => (
                 <option key={index} value={mtb.id}>
                   {mtb.name} - {mtb.model}

@@ -10,6 +10,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 /* stylelint-disable no-descending-specificity */
 body {
   font-family: 'Lato', sans-serif;
@@ -68,6 +69,7 @@ header nav a:active,
 header nav a:hover {
   background-color: var(--second);
   color: #fff;
+  width: 100%;
 }
 
 header .network-icon {
@@ -104,12 +106,12 @@ section {
   justify-content: space-between;
 }
 
-section > div {
+section>div {
   height: 100vh;
 }
 
-section > .left_nav,
-section > .right_nav {
+section>.left_nav,
+section>.right_nav {
   display: flex;
   align-items: center;
   width: 4.5%;
@@ -123,19 +125,19 @@ section > .right_nav {
   border-radius: 8px 0 0 8px;
 }
 
-section > .cards {
+section>.cards {
   display: flex;
   flex-direction: column;
   text-align: center;
   padding-top: 200px;
 }
 
-.cards > .top_header > h2 {
+.cards>.top_header>h2 {
   text-transform: uppercase;
   font-size: 2em;
 }
 
-.cards > .top_header > p {
+.cards>.top_header>p {
   font-size: 11pt;
   padding-top: 10px;
   color: silver;
@@ -147,7 +149,7 @@ section > .cards {
   margin: auto;
 }
 
-.cards > .bottom_content {
+.cards>.bottom_content {
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -204,7 +206,7 @@ section .inactive {
   gap: 10px;
 }
 
-.media_handle > img {
+.media_handle>img {
   width: 20px;
   padding: 2px;
   border: 1px solid rgb(170, 161, 161);
@@ -229,7 +231,7 @@ section .inactive {
   padding-top: 10vh;
 }
 
-.leftPart > img {
+.leftPart>img {
   width: 100%;
 }
 
@@ -261,30 +263,32 @@ section .inactive {
   padding: 10px;
 }
 
-.rightPart table tr:nth-child(odd) { background-color: silver; }
+.rightPart table tr:nth-child(odd) {
+  background-color: silver;
+}
 
 /* Motorbike form */
 
-section.add-motorbike > div {
+section.add-motorbike>div {
   width: 50%;
 }
 
-.add-reservation > div,
-.add-motorbike > div:first-child {
+.add-reservation>div,
+.add-motorbike>div:first-child {
   width: 450px;
   height: auto;
   margin: 100px auto;
 }
 
-.add-reservation > div {
+.add-reservation>div {
   border: 1px solid silver;
   border-radius: 10px;
   padding: 25px;
   height: auto;
 }
 
-.add-reservation > div h2,
-.add-motorbike > div:first-child h2 {
+.add-reservation>div h2,
+.add-motorbike>div:first-child h2 {
   text-align: center;
   margin-bottom: 10px;
 }
@@ -305,7 +309,7 @@ section.add-motorbike > div {
   padding: 10px;
 }
 
-.add-motorbike > div:last-child {
+.add-motorbike>div:last-child {
   background-color: rgba(95, 181, 35, 0.5);
   display: flex;
   flex-direction: column;
@@ -313,7 +317,7 @@ section.add-motorbike > div {
   padding: 25px;
 }
 
-.add-motorbike > div:last-child > * {
+.add-motorbike>div:last-child>* {
   width: 500px;
   border: 1px solid silver;
   padding: 5px;
@@ -340,26 +344,28 @@ section.add-motorbike > div {
   padding: 8px;
 }
 
-.reservation-page tr:nth-child(even) { background-color: #f2f2f2; }
+.reservation-page tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
 /* delete-motorbike */
 
-.delete-motorbike{
-  margin:25px;
+.delete-motorbike {
+  margin: 25px;
   height: 95vh;
   overflow-y: auto;
 }
 
-.delete-motorbike .box{
+.delete-motorbike .box {
   height: 70px;
   width: 500px;
-  border:1px solid silver;
+  border: 1px solid silver;
   padding: 5px;
   margin: 5px;
   background-size: cover;
 }
 
-.delete-motorbike .box:hover{
+.delete-motorbike .box:hover {
   background-color: silver;
 }
 
@@ -371,23 +377,60 @@ section.add-motorbike > div {
   cursor: pointer;
   color: white;
   margin-right: 20px;
-  display: none; /* initially hide the button */
+  display: none;
 }
 
 .nav-links {
-  /* ... (previous styles) */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:start;
   gap: 10px;
 }
 
 .nav-links.open {
   display: flex;
 }
+
+/* debut */
+#root .login {
+  background-color: #c8cdd3;
+  border-radius: 8px;
+  width: 300px;
+  margin:auto;
+  padding: 10px;
+}
+
+#root .login-form-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10%;
+  padding:10px;
+}
+
+.login-form-cont button,
+.login-form-cont input {
+    height: 40px;
+    padding: 5px;
+    color: #434b54;
+    border:1px solid silver;
+    margin-bottom: 10px;
+    width: 100%;
+  border-radius: 5px;
+}
+
+#root .logintext {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* fin */
+
 @media only screen and (max-width: 768px) {
   body {
-    overflow: auto; /* Enable scrolling on small screens */
+    overflow: auto;
+    /* Enable scrolling on small screens */
   }
 
   #root {
@@ -398,39 +441,50 @@ section.add-motorbike > div {
     height: auto;
   }
 
-  #root .login{
-    display: flex;
-    background-color: #88919c;
-    border-radius: 5px;
-    margin-top: 25%;
+  #root .login {
+    background-color: #c8cdd3;
+    border-radius: 8px;
+    width: 300px;
+    margin:20vh auto;
   }
-#root .login-form-cont{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 10%;
-}
-#root .logintext{
-margin-top: 10px;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-#root .form{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 16px;
-  margin: 30px;
-}
 
-.form input label{
-  color: #434b54;
-}
-#root .btns{
-  display: flex;
-  justify-content: space-between;
-}
+  #root .login-form-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10%;
+    padding:10px;
+  }
+
+  .login-form-cont button,
+  .login-form-cont input {
+      height: 40px;
+      padding: 5px;
+      color: #434b54;
+      border:1px solid silver;
+      margin-bottom: 10px;
+      width: 100%;
+    border-radius: 5px;
+  }
+
+  #root .logintext {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #root .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 30px;
+  }
+
+  .form input label {
+    color: #434b54;
+  }
 
   #root header {
     width: 100%;
@@ -440,7 +494,7 @@ align-items: center;
 
   header .logo img {
     margin: 20px 10px;
-    width: 50%;
+    width: 30%;
   }
 
   header nav {
@@ -458,31 +512,36 @@ align-items: center;
 
   header .network-icon {
     display: none;
- 
+
   }
 
-#root .model-cards{
+  #root .model-cards {
     display: flex;
     flex-direction: column;
     margin-bottom: 10rem;
-}
-  footer{
+  }
+
+  footer {
     display: flex;
     flex-direction: column;
   }
-  section .btn{
+
+  section .btn {
     padding: 0px 14px;
   }
-  section > div {
-   height:auto
+
+  section>div {
+    height: auto
   }
-  section > .cards {
-     padding-top: 0;
-      /* Adjust styles for smaller screens, e.g., display only one item per row */
- 
-}
-  section > .left_nav,
-  section > .right_nav {
+
+  section>.cards {
+    padding-top: 0;
+    /* Adjust styles for smaller screens, e.g., display only one item per row */
+
+  }
+
+  section>.left_nav,
+  section>.right_nav {
     margin-left: 10%;
   }
 
@@ -490,7 +549,7 @@ align-items: center;
     width: 100%;
   }
 
-  .cards > .top_header > h2 {
+  .cards>.top_header>h2 {
     font-size: 1.5em;
   }
 
@@ -512,16 +571,19 @@ align-items: center;
   .rightPart table {
     margin: 20px 0 11px 0;
   }
-  .cards > .bottom_content {
+
+  .cards>.bottom_content {
     display: block;
-    }
-  #root .add-motorbike{
-display: flex;
   }
+
+  #root .add-motorbike {
+    display: flex;
+  }
+
   /* Motorbike form */
-  section.add-motorbike > div,
-  .add-reservation > div,
-  .add-motorbike > div:first-child {
+  section.add-motorbike>div,
+  .add-reservation>div,
+  .add-motorbike>div:first-child {
     width: 100%;
     margin: 20px 10px;
   }
@@ -537,14 +599,16 @@ display: flex;
     height: 150px;
   }
 
-  .add-motorbike > div:last-child {
-      display: none;
+  .add-motorbike>div:last-child {
+    display: none;
   }
+
   /* Reservation page */
   .reservation-page {
     width: 100%;
     margin: 0;
   }
+
   .toggle-button {
     display: block;
     color: black;
@@ -558,21 +622,27 @@ display: flex;
     top: 60px;
     left: 0;
     width: 100%;
-    background-color: rgba(51, 51, 51, 0.9); /* semi-transparent dark background */
-    backdrop-filter: blur(2px); 
+    background-color: rgba(51, 51, 51, 0.9);
+    /* semi-transparent dark background */
+    backdrop-filter: blur(2px);
     z-index: 1;
+    height: 100vh;
   }
+
   #root section {
     height: auto;
     width: auto;
   }
-  .network-icon{
+
+  .network-icon {
     display: flex;
   }
-  .loadng{
+
+  .loadng {
     display: none;
   }
-  .motos{
+
+  .motos {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -580,12 +650,14 @@ display: flex;
     margin-top: 15px;
     gap: 10px;
   }
-  .item{
+
+  .item {
     display: flex;
     justify-content: space-between;
     gap: 70px;
   }
-  .deletebtn{
+
+  .deletebtn {
     background-color: #5fb523;
     font: 1em sans-serif;
     color: white;
