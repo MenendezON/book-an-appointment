@@ -1,6 +1,6 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :authorize_request
-  
+
   def index
     @reservations = Reservation.includes(:motorbike, :user).where(user_id: @current_user)
     render json: @reservations.to_json(include: { motorbike: {}, user: {} })
