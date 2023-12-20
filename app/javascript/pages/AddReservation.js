@@ -11,12 +11,12 @@ const AddReservation = () => {
   const handleAddReservation = (reservationData) => {
     dispatch(addReservation(reservationData));
 
-    axios.post('/api/v1/reservations', reservationData, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem('acess-token'))?.token}`,
-      },
-    });
+    // axios.post('/api/v1/reservations', reservationData, {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Authorization: `Bearer ${JSON.parse(localStorage.getItem('acess-token'))?.token}`,
+    //   },
+    // });
   };
 
   return (
