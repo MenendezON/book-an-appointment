@@ -102,6 +102,7 @@ Run the following commands to setup backend database:
 ### `rails db:create`
 
 Creates the specified databases defined in your database configuration.
+
 ### `rails db:migrate`
 
 Executes any pending database migrations, updating the database schema to the latest version.
