@@ -14,10 +14,10 @@ development:
   <<: *default
   adapter: postgresql
   encoding: unicode 
-  database: bike_appointment
+  database: bike_appointments
   username: postgres
   host: localhost
-  password: root
+  password: Postgre
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -26,10 +26,10 @@ test:
   <<: *default
   adapter: postgresql
   encoding: unicode 
-  database: bike_appointment_test
+  database: bike_appointments_test
   username: postgres
   host: localhost
-  password: root
+  password: Postgre
 
 production:
   <<: *default
