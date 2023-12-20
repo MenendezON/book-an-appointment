@@ -47,9 +47,12 @@ const Reservation = () => {
                 <tr key={resv.id}>
                   <td>{resv.date}</td>
                   <td>{resv.city}</td>
-                  <td>{resv.motorbike.name}</td>
-                  <td>{resv.motorbike.model}</td>
-                  <td><Link to={`/motorbikes/${resv.motorbike.id}`} key={resv.motorbike.id}>View</Link></td>
+                  <td>{resv.motorbike && resv.motorbike.name}</td>
+                  <td>{resv.motorbike && resv.motorbike.model}</td>
+                  {resv.motorbike && (
+                  <Link to={`/motorbikes/${resv.motorbike.id}`} key={resv.motorbike.id}>View</Link>
+                  )}
+
                 </tr>
               ))}
             </table>

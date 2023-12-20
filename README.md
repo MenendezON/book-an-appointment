@@ -68,9 +68,8 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- GETTING STARTED -->
 
-# 💻 Getting Started with Create React App <a name="getting-started"></a>
+# 💻 Getting Started<a name="getting-started"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -85,43 +84,37 @@ To install dependencies, run:
 
 ```sh
 npm install
+
+bundle install
 ```
 
-In the project directory, you can run:
+Run the following commands to setup backend database:
 
-### `npm start`
+### `rails db:create`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Creates the specified databases defined in your database configuration.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `rails db:migrate`
 
-### `npm test`
+Executes any pending database migrations, updating the database schema to the latest version.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `rails db:seed`
+
+Populates the database with predefined data, often used for seeding initial records or test data.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In the project directory, to launch the project, you can run:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `rails server`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+** Run tests **
+To run tests, run the following command:
 
-### `npm run eject`
+```sh
+rspec spec/request
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
+``````
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -129,9 +122,11 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 # 👥 Authors <a name="authors"></a>
 
-🤑 **Menendez Nelson**
+👤 **Menendez NELSON**
 
-- GitHub: [@Menendez](https://github.com/MenendezON)
+- GitHub: [@MenendezON](https://github.com/MenendezON)
+- Twitter: [@username](https://twitter.com/menendezon)
+- LinkedIn: [username](https://linkedin.com/in/menendezon)
 
 🤑 **Aly Atalla**
 
@@ -140,10 +135,14 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 🤑 **Michael Darkwah**
 
 - GitHub: [@Mike47ip](https://github.com/Mike47ip)
+- Twitter: [@ip_mikee](https://twitter.com/ip_mikee)
+- LinkedIn: [Michael Darkwah](https://www.linkedin.com/in/michael-darkwah-81a039141/)
 
 🤑 **Fatuma Hussein**
 
-- GitHub: [@Fatuma](https://github.com/fatmahussein)
+- GitHub: [@fatmahussein](https://github.com/fatmahussein)
+- Twitter: [@FatmaHussein200](https://twitter.com/@FatmaHussein200)
+- LinkedIn: [FatumaHussein](https://www.linkedin.com/in/fatuma-hussein-48149917b)
 
 <!-- FUTURE FEATURES -->
 
