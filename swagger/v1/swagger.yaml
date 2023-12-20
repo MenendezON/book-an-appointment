@@ -1,9 +1,61 @@
 ---
 openapi: 3.0.1
 info:
-  title: API V1
+  title: Bicycle appointment API
+  description: 
   version: v1
+security:
+  - bearerAuth: []
 paths:
+  "/api/v1/users":
+    post:
+      summary: create user
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: unprocessable entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                  required:
+                    - username
+                    - password
+              required:
+                - user
+
+  "/api/v1/login":
+    post:
+      summary: login auth
+      responses:
+        '200':
+          description: successful
+        '401':
+          description: unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+                - username
+                - password
+
   "/api/v1/motorbikes":
     get:
       summary: list motorbikes
@@ -38,97 +90,50 @@ paths:
               - price
   "/api/v1/motorbikes/{id}":
     parameters:
-    - name: id
-      in: path
-      description: id
-      required: true
-      schema:
-        type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
     get:
-      summary: show motorbike
+      summary: show doctor
       responses:
         '200':
           description: successful
     delete:
-      summary: delete motorbike
+      summary: delete doctor
       responses:
         '200':
           description: successful
-  "/api/v1/reservations":
-    post:
-      summary: create reservation
-      parameters: []
-      responses:
-        '201':
-          description: successful
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                date:
-                  type: string
-                  format: date
-                city:
-                  type: string
-                motorbike_id:
-                  type: integer
-                user_id:
-                  type: integer
-              required:
-              - date
-              - city
-              - motorbike_id
-    get:
-      summary: list reservations
-      responses:
-        '200':
-          description: successful
-  "/api/v1/reservations/{id}":
+  
     parameters:
-    - name: id
-      in: path
-      description: id
-      required: true
-      schema:
-        type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
     get:
-      summary: show reservation
+      summary: show appointment
       responses:
         '200':
           description: successful
-        '404':
-          description: not found
-  "/api/v1/users":
-    post:
-      summary: create user
-      parameters: []
+    delete:
+      summary: delete appointment
       responses:
-        '201':
-          description: user created
-        '422':
-          description: unprocessable entity
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                user:
-                  type: object
-                  properties:
-                    email:
-                      type: string
-                    password:
-                      type: string
-                  required:
-                  - email
-                  - password
-              required:
-              - user
+        '200':
+          description: successful
+
 servers:
-- url: https://{defaultHost}
-  variables:
-    defaultHost:
-      default: localhost:3000
+  - url: https://{defaultHost}
+    variables:
+      defaultHost:
+        default: localhost:3000
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

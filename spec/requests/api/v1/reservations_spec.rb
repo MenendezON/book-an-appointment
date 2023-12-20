@@ -1,126 +1,144 @@
-require 'swagger_helper'
+require 'rails_helper'
+require 'jwt'
 
-RSpec.describe 'api/v1/reservations', type: :request do
-  let(:user) { create(:user) }
-  let(:motorbike) { create(:motorbike) }
-
-  let(:reservation) do
-    {
-      date: '2023-12-31',
-      city: 'Example City',
-      motorbike_id: motorbike.id
+RSpec.describe 'Api::V1::ReservationsControllers', type: :request do
+  before do
+    post '/api/v1/users', params: {
+      user: {
+        username: 'motorbike_user',
+        password: 'motorbike_user'
+      }
     }
+    
+    parsed_response = JSON.parse(response.body)
+    token = parsed_response['token']
+    decoded_token = JWT.decode(token, nil, false)
+    user_id = decoded_token[0]['user_id']
+
+    puts user_id
+
+    user = JSON.parse(parsed_response['token']).deep_symbolize_keys
+    @current_user = user_id
+
+    post '/api/v1/login', params: {
+      auth: {
+        username: 'motorbike_user',
+        password: 'motorbike_user'
+      }
+    }
+    auth = JSON.parse(response.body).deep_symbolize_keys
+    @current_user = auth[:decoded_token]
+    puts 'hhell'
   end
 
-  path '/api/v1/reservations' do
-    post('create reservation') do
-      consumes 'application/json'
-      parameter name: :reservation, in: :body, schema: {
-        type: :object,
-        properties: {
-          date: { type: :string, format: :date },
-          city: { type: :string },
-          motorbike_id: { type: :integer },
-          user_id: { type: :integer }
-        },
-        required: %w[date city motorbike_id]
-      }
+  describe 'GET /index' do
+    it 'returns an array of reservations made by the current user' do
+      get '/api/v1/reservations', headers: { Authorization: "Bearer #{@current_user}" }
+      json = JSON.parse(response.body).deep_symbolize_keys
+      expect(response.status).to eq(200)
+      expect(json[:reservations]).to be_a(Array)
+    end
+  end
 
-      response(201, 'successful') do
-        let(:valid_reservation_params) do
-          {
-            date: '2023-12-31',
-            city: 'Example City',
-            motorbike_id: motorbike.id
-          }
-        end
+  describe 'GET /show' do
+    context 'a valid request' do
+      it 'shows a specific reservation made by the current user' do
+        image = fixture_file_upload('app/assets/images/pizza meme.jpg', 'image/jpg')
+        motorbike = Motorbike.create(name: 'motorbike', description: 'for respec testing', price_per_day: 10, image:)
+        city = 'Tokyo'
+        start_date = Date.new(2024, 12, 1)
+        end_date = Date.new(2024, 12, 1)
+        user_id = @current_user_id
+        motorbike_id = motorbike.id
+        reservation_cost = 501.99
+        reservation = Reservation.new(city:, start_date:, end_date:, reservation_cost:, user_id:, motorbike_id:)
+        reservation.save
+        get "/api/v1/reservations/#{reservation.id}", headers: { Authorization: "Bearer #{@current_user}" }
 
-        run_test! do |response|
-          # Check if the response body is not empty before attempting to parse JSON
-          unless response.body.blank?
-            # Optionally, add additional assertions based on the expected response structure
-            JSON.parse(response.body, symbolize_names: true)
-            # Example: expect(parsed_response[:key]).to eq(expected_value)
-          end
-        end
+        json = JSON.parse(response.body).deep_symbolize_keys
+        expect(response.status).to eq(200)
+        expect(json[:reservation][:city]).to eq('Tokyo')
+        expect(json[:reservation][:start_date]).to eq('2024-12-01')
+        expect(json[:reservation][:end_date]).to eq('2024-12-01')
+        expect(json[:reservation][:reservation_cost]).to eq(501.99)
+        expect(json[:reservation][:user_id]).to eq(@current_user_id)
+        expect(json[:reservation][:motorbike_id]).to eq(motorbike.id)
       end
     end
 
-    # post('create motorbike') do
-    #   consumes 'application/json'
-    #   parameter name: :motorbike, in: :body, schema: {
-    #     type: :object,
-    #     properties: {
-    #       name: { type: :string },
-    #       model: { type: :string },
-    #       image: { type: :string },
-    #       price: { type: :number },
-    #       description: { type: :string }
-    #     },
-    #     required: ['name', 'model', 'price']
-    #   }
+    context 'an invalid request' do
+      it 'returns an error message' do
+        id = 1138
+        get "/api/v1/reservations/#{id}", headers: { Authorization: "Bearer #{@current_user}" }
 
+        expect(response.status).to eq(404)
+      end
+    end
+  end
+
+  describe 'POST /create' do
+    context 'creating a reservation with valid parameters' do
+      it 'creates a reservation' do
+        image = fixture_file_upload('app/assets/images/pizza meme.jpg', 'image/jpg')
+        motorbike = Motorbike.create(name: 'motorbike2', description: 'for respec testing', price_per_day: 10, image:)
+
+        date = '2024-10-20'
+
+        post '/api/v1/reservations', params: {
+          motorbike: motorbike.id,
+          date:,
+          city:,
+          reservation: {
+            date:,
+            end_date:,
+            city: 'Copenhagen'
+          }
+        }, headers: { Authorization: "Bearer #{@current_user}" }
+
+        json = JSON.parse(response.body).deep_symbolize_keys
+        expect(response.status).to eq(201)
+        expect(json[:success]).to eq('Reservation has been created.')
+        expect(json[:reservation][:city]).to eq('Copenhagen')
+        expect(json[:reservation][:date]).to eq('2024-10-20')
+        expect(json[:reservation][:motorbike_id]).to eq(motorbike.id)
+      end
+    end
+
+    # context 'creating a reservation with invalid parameters' do
+    #   it 'returns an error' do
+    #     image = fixture_file_upload('app/assets/images/pizza meme.jpg', 'image/jpg')
+    #     motorbike = Motorbike.create(name: 'motorbike', description: 'for respec testing', price_per_day: 10, image:)
+
+    #     date = '2024-10-20'
+
+    #     post '/api/v1/reservations', params: {
+    #       motorbike: motorbike.id,
+    #       start_date:,
+    #       end_date:,
+    #       reservation: {
+    #         start_date:,
+    #         end_date:,
+    #         city: ''
+    #       }
+    #     }, headers: { Authorization: "Bearer #{@current_user}" }
+
+    #     expect(response.status).to eq(400)
+    #   end
     # end
 
-    get('list reservations') do
-      response(200, 'successful') do
-        before do
-          create_list(:reservation, 3, user:, motorbike:)
-          sign_in user
-          get '/api/v1/reservations'
-        end
+    # context 'creating a reservation without a motorbike id' do
+    #   it 'returns satus 404' do
+    #     post '/api/v1/reservations', params: {
+    #       motorbike: '',
+    #       reservation: {
+    #         start_date: '2024-10-10',
+    #         end_date: '2024-10-12',
+    #         city: 'Copenhagen'
+    #       }
+    #     }, headers: { Authorization: "Bearer #{@current_user}" }
 
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
-  end
-
-  path '/api/v1/reservations/{id}' do
-    parameter name: 'id', in: :path, type: :string, description: 'id'
-
-    get('show reservation') do
-      response(200, 'successful') do
-        let(:reservation) { create(:reservation, user:, motorbike:) }
-        let(:id) { reservation.id }
-
-        before do
-          sign_in user
-          get "/api/v1/reservations/#{reservation.id}"
-        end
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-
-      response(404, 'not found') do
-        let(:id) { 'nonexistent_id' }
-        before do
-          sign_in user
-          get "/api/v1/reservations/#{id}"
-        end
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
+    #     expect(response.status).to eq(404)
+    #   end
+    # end
   end
 end

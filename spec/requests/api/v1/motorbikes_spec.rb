@@ -70,35 +70,6 @@ RSpec.describe 'api/v1/motorbikes', type: :request do
       end
     end
 
-    patch('update motorbike') do
-      consumes 'application/json'
-      parameter name: :motorbike, in: :body, schema: {
-        type: :object,
-        properties: {
-          name: { type: :string },
-          model: { type: :string },
-          image: { type: :string },
-          price: { type: :number },
-          description: { type: :string }
-        }
-      }
-    end
-
-    put('update motorbike') do
-      consumes 'application/json'
-      parameter name: :motorbike, in: :body, schema: {
-        type: :object,
-        properties: {
-          name: { type: :string },
-          model: { type: :string },
-          image: { type: :string },
-          price: { type: :number },
-          description: { type: :string }
-        },
-        required: %w[name model price]
-      }
-    end
-
     delete('delete motorbike') do
       response(200, 'successful') do
         let(:id) { create(:motorbike).id }

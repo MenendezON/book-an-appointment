@@ -17,13 +17,13 @@ FactoryBot.define do
     password { Faker::Internet.password(min_length: 6) }
   end
 
-  factory :user_with_appointments, parent: :user do
+  factory :user_with_reservations, parent: :user do
     transient do
-      appointments_count { 3 }
+      reservations_count { 3 }
     end
 
     after(:create) do |user, evaluator|
-      create_list(:appointment, evaluator.appointments_count, user:)
+      create_list(:reservation, city, evaluator.reservations_count, user:)
     end
   end
 end

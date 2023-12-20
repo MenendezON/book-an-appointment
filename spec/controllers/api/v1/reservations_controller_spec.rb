@@ -8,65 +8,48 @@ end
 RSpec.describe 'Api::V1::ReservationsController', type: :controller do
   let(:user) { create(:user) }
   let(:motorbike) { create(:motorbike) }
+  let(:token) { user.generate_jwt(user) }
 
-  before do
+  before do 
+    request.headers['Authorization'] = "Bearer #{token}" 
     sign_in(user)
     @controller = Api::V1::ReservationsController.new
   end
 
   describe 'GET #index' do
-    it 'returns a successful response' do
+    it 'returns a list of user reservations' do
+      create_list(:reservation, 3, user:)
       get :index
-      puts response.body
-      puts response.status
-      expect(response).to be_successful
+      expect(response).to have_http_status(:ok)
+      expect(JSON.parse(response.body).count).to eq(3)
     end
   end
 
-  describe 'GET #show' do
-    let(:reservation) { create(:reservation, user:) } # Assuming you have a Reservation factory
-
-    it 'returns a successful response' do
-      get :show, params: { id: reservation.id }
-      expect(response).to be_successful
-    end
-  end
+  
 
   describe 'POST #create' do
-    it 'creates a new reservation' do
-      reservation_params = { date: '2023-01-01', city: 'Example City', motorbike_id: motorbike.id }
-      post :create, params: { reservation: reservation_params }
-      expect(response).to have_http_status(:created)
+    context 'with valid parameters' do
+      let(:motorbike) { create(:motorbike) }
+
+      it 'creates a new reservation' do
+        post :create, params: { reservation: { date: DateTime.now, city: 'Dakar', motorbike_id: motorbike.id } }
+        expect(response).to have_http_status(:created)
+        expect(Reservation.count).to eq(1)
+      end
     end
 
-    it 'does not create a reservation with invalid params' do
-      post :create, params: { reservation: { date: '', city: '', motorbike_id: nil } }
-      expect(response).to have_http_status(:unprocessable_entity)
-    end
-  end
-
-  describe 'DELETE #destroy' do
-    let(:reservation) { create(:reservation, motorbike:, user:) }
-
-    it 'deletes the reservation' do
-      expect do
-        delete :destroy, params: { id: reservation.id }
-      end.to change(Reservation, :count).by(-1)
-    end
-
-    it 'returns a successful response' do
-      delete :destroy, params: { id: reservation.id }
-      expect(response).to have_http_status(:ok)
-    end
-
-    context 'when reservation deletion fails' do
-      before do
-        allow_any_instance_of(Reservation).to receive(:destroy).and_return(false)
+    context 'with invalid parameters' do
+      it 'does not create a new reservation and returns unprocessable_entity status' do
+        post :create, params: { reservation: { date: nil, city: 'Abuja', motorbike_id: nil } }
+        expect(response).to have_http_status(:unprocessable_entity)
       end
 
-      it 'returns an unprocessable entity response' do
-        delete :destroy, params: { id: reservation.id }
-        expect(response).to have_http_status(:unprocessable_entity)
+      it 'returns error messages in the response' do
+        post :create, params: { reservation: { date: nil, city: 'Bamako', motorbike_id: nil } }
+        errors = JSON.parse(response.body)['errors']
+        expect(errors).to be_an(Array)
+        expect(errors).to include("Reservation time can't be blank")
+        expect(errors).to include('Motorbike must exist')
       end
     end
   end

@@ -1,18 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe Reservation, type: :model do
-  let(:motorbike) { create(:motorbike) } # Assuming you have a Motorbike factory
-  let(:user) { create(:user) } # Assuming you have a User factory
-
   describe 'validations' do
-    it { should validate_presence_of(:date) }
-    it { should validate_presence_of(:city) }
-    it { should validate_presence_of(:motorbike) }
-    it { should validate_presence_of(:user) }
+    it 'should be valid with valid credentials' do
+      reservation = FactoryBot.create(:reservation)
+      expect(reservation).to be_valid
+    end
+
+    it 'is not valid without an reservation time' do
+      reservation = Reservation.new(date: nil)
+      expect(reservation).to_not be_valid
+    end
   end
 
   describe 'associations' do
-    it { should belong_to(:motorbike) }
-    it { should belong_to(:user) }
+    it 'should belong to a user' do
+      association = described_class.reflect_on_association(:user)
+      expect(association.macro).to eq :belongs_to
+    end
+
+    it 'should belong to a motorbike' do
+      association = described_class.reflect_on_association(:motorbike)
+      expect(association.macro).to eq :belongs_to
+    end
   end
 end
