@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-  const AddReservationForm = ({ onAddReservation, defaultMotorbikeId }) => {
-    const [formData, setFormData] = useState({
-      date: '',
-      city: '',
-      motorbike_id: defaultMotorbikeId || '', 
-    });
+const AddReservationForm = ({ onAddReservation, defaultMotorbikeId }) => {
+  const [formData, setFormData] = useState({
+    date: '',
+    city: '',
+    motorbike_id: defaultMotorbikeId || '',
+  });
 
   const { content } = useSelector((store) => store.motorbikes);
 
@@ -88,9 +88,7 @@ import PropTypes from 'prop-types';
                 {cities.map((city) => (
                   <option key={city} value={city.name}>
                     {city.country}
-                    {' '}
-                    -
-                    {' '}
+                    {' - '}
                     {city.name}
                   </option>
                 ))}
@@ -98,26 +96,28 @@ import PropTypes from 'prop-types';
             </label>
           </div>
           <div>
-        <label htmlFor="motorbike">
-          Motorbike:
-          <select
-            id="motorbike"
-            name="motorbike_id"
-            onChange={handleChange}
-            defaultValue={defaultMotorbikeId || "placeholder"} 
-            required
-          >
-            <option value="placeholder" disabled>
-              Choose from the list.
-            </option>
-            {content.map((mtb) => (
-              <option key={mtb.id} value={mtb.id}>
-                {mtb.name} - {mtb.model}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
+            <label htmlFor="motorbike">
+              Motorbike:
+              <select
+                id="motorbike"
+                name="motorbike_id"
+                onChange={handleChange}
+                defaultValue={defaultMotorbikeId || 'placeholder'}
+                required
+              >
+                <option value="placeholder" disabled>
+                  Choose from the list.
+                </option>
+                {content.map((mtb) => (
+                  <option key={mtb.id} value={mtb.id}>
+                    {mtb.name}
+                    {' - '}
+                    {mtb.model}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
           <button type="submit" className="btn-lg active">Reserve &gt;&gt;</button>
         </form>
       </div>
