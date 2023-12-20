@@ -103,42 +103,5 @@ RSpec.describe 'Api::V1::ReservationsControllers', type: :request do
         expect(json[:reservation][:motorbike_id]).to eq(motorbike.id)
       end
     end
-
-    # context 'creating a reservation with invalid parameters' do
-    #   it 'returns an error' do
-    #     image = fixture_file_upload('app/assets/images/pizza meme.jpg', 'image/jpg')
-    #     motorbike = Motorbike.create(name: 'motorbike', description: 'for respec testing', price_per_day: 10, image:)
-
-    #     date = '2024-10-20'
-
-    #     post '/api/v1/reservations', params: {
-    #       motorbike: motorbike.id,
-    #       start_date:,
-    #       end_date:,
-    #       reservation: {
-    #         start_date:,
-    #         end_date:,
-    #         city: ''
-    #       }
-    #     }, headers: { Authorization: "Bearer #{@current_user}" }
-
-    #     expect(response.status).to eq(400)
-    #   end
-    # end
-
-    # context 'creating a reservation without a motorbike id' do
-    #   it 'returns satus 404' do
-    #     post '/api/v1/reservations', params: {
-    #       motorbike: '',
-    #       reservation: {
-    #         start_date: '2024-10-10',
-    #         end_date: '2024-10-12',
-    #         city: 'Copenhagen'
-    #       }
-    #     }, headers: { Authorization: "Bearer #{@current_user}" }
-
-    #     expect(response.status).to eq(404)
-    #   end
-    # end
   end
 end
