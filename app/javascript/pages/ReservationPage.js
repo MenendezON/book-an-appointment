@@ -50,8 +50,8 @@ const Reservation = () => {
                   <td>{resv.motorbike && resv.motorbike.name}</td>
                   <td>{resv.motorbike && resv.motorbike.model}</td>
                   {resv.motorbike && (
-  <Link to={`/motorbikes/${resv.motorbike.id}`} key={resv.motorbike.id}>View</Link>
-)}
+                  <Link to={`/motorbikes/${resv.motorbike.id}`} key={resv.motorbike.id}>View</Link>
+                  )}
 
                 </tr>
               ))}
