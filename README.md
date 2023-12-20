@@ -100,8 +100,15 @@ You may also see any lint errors in the console.
 Run the following commands to setup backend database:
 
 ### `rails db:create`
+
+Creates the specified databases defined in your database configuration.
 ### `rails db:migrate`
+
+Executes any pending database migrations, updating the database schema to the latest version.
+
 ### `rails db:seed`
+
+Populates the database with predefined data, often used for seeding initial records or test data.
 
 ### `npm run build`
 
