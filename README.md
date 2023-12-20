@@ -68,7 +68,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- GETTING STARTED -->
 
-# 💻 Getting Started with Create React App <a name="getting-started"></a>
+# 💻 Getting Started<a name="getting-started"></a>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -86,16 +86,6 @@ To install dependencies, run:
 ```sh
 npm install
 ```
-
-In the project directory, you can run:
-
-### `rails server`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 Run the following commands to setup backend database:
 
@@ -121,16 +111,20 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+In the project directory, you can run:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `rails server`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Run tests
+To run tests, run the following command:
 
+npm test
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -138,21 +132,9 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 # 👥 Authors <a name="authors"></a>
 
-🤑 **Menendez Nelson**
-
-- GitHub: [@Menendez](https://github.com/MenendezON)
-
-🤑 **Aly Atalla**
-
-- GitHub: [@Aly](https://github.com/AlyAtalla)
-
-🤑 **Michael Darkwah**
-
-- GitHub: [@Mike47ip](https://github.com/Mike47ip)
-
-🤑 **Fatuma Hussein**
-
-- GitHub: [@Fatuma](https://github.com/fatmahussein)
+- GitHub: [@menendezon](https://github.com/menendezon)
+- Twitter: [@menendezon](https://twitter.com/menendezon)
+- LinkedIn: [MenendezON](https://linkedin.com/in/menendezon)
 
 <!-- FUTURE FEATURES -->
 

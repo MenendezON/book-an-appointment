@@ -31,8 +31,6 @@
   ],
   "ignorePatterns": [
     "dist/",
-    "build/",
-    "app/javascript/components/AddReservationForm.js",
-    "app/javascript/pages/DetailsPage.js"
+    "build/"
   ]
 }
