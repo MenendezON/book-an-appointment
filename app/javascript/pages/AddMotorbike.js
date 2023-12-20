@@ -10,7 +10,6 @@ const AddMotorbike = () => {
 
   const handleAddMotorbike = (motorbikeData) => {
     dispatch(addMotorbike(motorbikeData));
-    ///axios.post('/api/v1/motorbikes', motorbikeData);
   };
 
   return (

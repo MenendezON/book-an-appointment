@@ -2,18 +2,11 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-// const AddReservationForm = ({ onAddReservation }) => {
-//   const [formData, setFormData] = useState({
-//     date: '',
-//     city: '',
-//     motorbike_id: '',
-//   });
-
   const AddReservationForm = ({ onAddReservation, defaultMotorbikeId }) => {
     const [formData, setFormData] = useState({
       date: '',
       city: '',
-      motorbike_id: defaultMotorbikeId || '', // Set the default value based on the prop
+      motorbike_id: defaultMotorbikeId || '', 
     });
 
   const { content } = useSelector((store) => store.motorbikes);
@@ -111,7 +104,7 @@ import PropTypes from 'prop-types';
             id="motorbike"
             name="motorbike_id"
             onChange={handleChange}
-            defaultValue={defaultMotorbikeId || "placeholder"} // Set the default value
+            defaultValue={defaultMotorbikeId || "placeholder"} 
             required
           >
             <option value="placeholder" disabled>
@@ -134,7 +127,7 @@ import PropTypes from 'prop-types';
 
 AddReservationForm.propTypes = {
   onAddReservation: PropTypes.func.isRequired,
-  defaultMotorbikeId: PropTypes.string, // Add prop type for defaultMotorbikeId
+  defaultMotorbikeId: PropTypes.string, 
 };
 
 export default AddReservationForm;

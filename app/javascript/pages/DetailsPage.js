@@ -7,7 +7,7 @@ import Navigation from '../components/Navigation';
 
 const Details = () => {
   const { content } = useSelector((store) => store.motorbikes);
-  const { id } = useParams(); // Assuming the parameter you're interested in is named 'id'
+  const { id } = useParams(); 
 
   // Filter the array based on the id parameter
   const mbk = content.filter((item) => item.id === parseInt(id, 10));
