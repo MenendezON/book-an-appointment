@@ -8,7 +8,7 @@ RSpec.configure do |config|
       openapi: '3.0.1',
       info: {
         title: 'Motorcycle appointment API',
-        description: '',
+        description: 'Motorcycle appointment is a web platform designed for enthusiasts of motorcycles. It provides an opportunity to explore the newest models from top brands and make reservations for thrilling rides.',
         version: 'v1'
       },
       paths: {},
