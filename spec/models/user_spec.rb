@@ -28,14 +28,9 @@ RSpec.describe User, type: :model do
   describe 'associations' do
     it 'should destroy associated reservations' do
       user = FactoryBot.create(:user)
-      FactoryBot.create_list(:reservation, 'Dakar', 3, user:)
+      FactoryBot.create_list(:reservation, 3, user:)
 
-      expect { user.destroy }.to change { Appointment.count }.by(-3)
-    end
-
-    it 'should have many doctors through reservations' do
-      user = FactoryBot.create(:user_with_reservations)
-      expect(user.motorbike.count).to eq(user.reservations.count)
+      expect { user.destroy }.to change { Reservation.count }.by(-3)
     end
   end
 end

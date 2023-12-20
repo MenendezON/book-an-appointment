@@ -2,43 +2,17 @@
 openapi: 3.0.1
 info:
   title: Bicycle appointment API
-  description: 
+  description: ''
   version: v1
 security:
   - bearerAuth: []
 paths:
-  "/api/v1/users":
-    post:
-      summary: create user
-      responses:
-        '201':
-          description: user created
-        '422':
-          description: unprocessable entity
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                user:
-                  type: object
-                  properties:
-                    username:
-                      type: string
-                    password:
-                      type: string
-                  required:
-                    - username
-                    - password
-              required:
-                - user
-
   "/api/v1/login":
     post:
       summary: login auth
+      parameters: []
       responses:
-        '200':
+        '201':
           description: successful
         '401':
           description: unauthorized
@@ -53,9 +27,8 @@ paths:
                 password:
                   type: string
               required:
-                - username
-                - password
-
+              - username
+              - password
   "/api/v1/motorbikes":
     get:
       summary: list motorbikes
@@ -90,46 +63,54 @@ paths:
               - price
   "/api/v1/motorbikes/{id}":
     parameters:
-      - name: id
-        in: path
-        description: id
-        required: true
-        schema:
-          type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
     get:
-      summary: show doctor
+      summary: show motorbike
       responses:
         '200':
           description: successful
     delete:
-      summary: delete doctor
+      summary: delete motorbike
       responses:
         '200':
           description: successful
-  
-    parameters:
-      - name: id
-        in: path
-        description: id
-        required: true
-        schema:
-          type: string
-    get:
-      summary: show appointment
+  "/api/v1/users":
+    post:
+      summary: create user
+      parameters: []
       responses:
-        '200':
-          description: successful
-    delete:
-      summary: delete appointment
-      responses:
-        '200':
-          description: successful
-
+        '201':
+          description: user created
+        '422':
+          description: unprocessable entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                  required:
+                  - username
+                  - password
+              required:
+              - user
 servers:
-  - url: https://{defaultHost}
-    variables:
-      defaultHost:
-        default: localhost:3000
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
 
 components:
   securitySchemes:
