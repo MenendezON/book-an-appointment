@@ -70,7 +70,6 @@
 
 # 💻 Getting Started<a name="getting-started"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -85,6 +84,8 @@ To install dependencies, run:
 
 ```sh
 npm install
+
+bundle install
 ```
 
 Run the following commands to setup backend database:
@@ -103,28 +104,17 @@ Populates the database with predefined data, often used for seeding initial reco
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-In the project directory, you can run:
+In the project directory, to launch the project, you can run:
 
 ### `rails server`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-Run tests
+** Run tests **
 To run tests, run the following command:
 
-npm test
+```sh
+rspec spec/request
+
+``````
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -132,9 +122,27 @@ npm test
 
 # 👥 Authors <a name="authors"></a>
 
-- GitHub: [@menendezon](https://github.com/menendezon)
-- Twitter: [@menendezon](https://twitter.com/menendezon)
-- LinkedIn: [MenendezON](https://linkedin.com/in/menendezon)
+👤 **Menendez NELSON**
+
+- GitHub: [@MenendezON](https://github.com/MenendezON)
+- Twitter: [@username](https://twitter.com/menendezon)
+- LinkedIn: [username](https://linkedin.com/in/menendezon)
+
+🤑 **Aly Atalla**
+
+- GitHub: [@Aly](https://github.com/AlyAtalla)
+
+🤑 **Michael Darkwah**
+
+- GitHub: [@Mike47ip](https://github.com/Mike47ip)
+- Twitter: [@ip_mikee](https://twitter.com/ip_mikee)
+- LinkedIn: [Michael Darkwah](https://www.linkedin.com/in/michael-darkwah-81a039141/)
+
+🤑 **Fatuma Hussein**
+
+- GitHub: [@fatmahussein](https://github.com/fatmahussein)
+- Twitter: [@FatmaHussein200](https://twitter.com/@FatmaHussein200)
+- LinkedIn: [FatumaHussein](https://www.linkedin.com/in/fatuma-hussein-48149917b)
 
 <!-- FUTURE FEATURES -->
 
