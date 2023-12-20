@@ -18,6 +18,13 @@ module BookAnAppointment
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*' # This allows requests from any origin during development.
+        resource '*', headers: :any, methods: %i[get post put patch delete options head]
+      end
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

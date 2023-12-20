@@ -125,8 +125,8 @@ rspec spec/request
 👤 **Menendez NELSON**
 
 - GitHub: [@MenendezON](https://github.com/MenendezON)
-- Twitter: [@username](https://twitter.com/menendezon)
-- LinkedIn: [username](https://linkedin.com/in/menendezon)
+- Twitter: [@menendezon](https://twitter.com/menendezon)
+- LinkedIn: [@menendezon](https://linkedin.com/in/menendezon)
 
 🤑 **Aly Atalla**
 
@@ -136,7 +136,7 @@ rspec spec/request
 
 - GitHub: [@Mike47ip](https://github.com/Mike47ip)
 - Twitter: [@ip_mikee](https://twitter.com/ip_mikee)
-- LinkedIn: [Michael Darkwah](https://www.linkedin.com/in/michael-darkwah-81a039141/)
+- LinkedIn: [@MichaelDarkwah](https://www.linkedin.com/in/michael-darkwah-81a039141/)
 
 🤑 **Fatuma Hussein**
 
@@ -181,7 +181,7 @@ Thank you for your support and for being a part of this journey! ❤️
 
 We would like to thank: 
 - Microverse
-- [Murat Kortmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) for the original design idea
+- Murat Kortma](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) for the original design idea
 - Code Reviewers
 
 <!-- LICENSE -->
