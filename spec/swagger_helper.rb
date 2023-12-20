@@ -7,7 +7,7 @@ RSpec.configure do |config|
     'v1/swagger.yaml' => {
       openapi: '3.0.1',
       info: {
-        title: 'Bicycle appointment API',
+        title: 'Motorcycle appointment API',
         description: '',
         version: 'v1'
       },

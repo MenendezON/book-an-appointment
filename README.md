@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h1><b> 🏖 Motorbike Booking 🏞 </b></h1>
+  <h1><b> Motorcycle appointment </b></h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -28,9 +28,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# Motorbike Booking <a name="about-project"></a>
+# Motorcycle appointment <a name="about-project"></a>
 
-**Motorbike Booking** is a web application that offers a diverse selection of luxurious accommodations and amenities. Find your slice of paradise, effortlessly plan your trip, and make memories that last a lifetime with MotorbikeHub.
+**Motorcycle appointment** is a web platform designed for enthusiasts of motorcycles. It provides an opportunity to explore the newest models from top brands and make reservations for thrilling rides.
 
 
 # 🛠 Built With <a name="built-with"></a>
