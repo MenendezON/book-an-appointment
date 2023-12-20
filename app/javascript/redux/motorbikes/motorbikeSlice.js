@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const URL_API = 'http://127.0.0.1:3000/api/v1/motorbikes';
+const URL_API = '/api/v1/motorbikes';
 
 // Async thunk for adding motorbikes
 export const addMotorbike = createAsyncThunk(

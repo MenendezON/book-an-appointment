@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const AddReservationForm = ({ onAddReservation }) => {
+const AddReservationForm = ({ onAddReservation, defaultMotorbikeId }) => {
   const [formData, setFormData] = useState({
     date: '',
     city: '',
-    motorbike_id: '',
+    motorbike_id: defaultMotorbikeId || '',
   });
 
   const { content } = useSelector((store) => store.motorbikes);
@@ -88,9 +88,7 @@ const AddReservationForm = ({ onAddReservation }) => {
                 {cities.map((city) => (
                   <option key={city} value={city.name}>
                     {city.country}
-                    {' '}
-                    -
-                    {' '}
+                    {' - '}
                     {city.name}
                   </option>
                 ))}
@@ -100,13 +98,20 @@ const AddReservationForm = ({ onAddReservation }) => {
           <div>
             <label htmlFor="motorbike">
               Motorbike:
-              <select id="motorbike" name="motorbike_id" onChange={handleChange} defaultValue="placeholder" required>
-                <option value="placeholder" disabled>Chose from the list.</option>
+              <select
+                id="motorbike"
+                name="motorbike_id"
+                onChange={handleChange}
+                defaultValue={defaultMotorbikeId || 'placeholder'}
+                required
+              >
+                <option value="placeholder" disabled>
+                  Choose from the list.
+                </option>
                 {content.map((mtb) => (
-                  <option key={mtb} value={mtb.id}>
+                  <option key={mtb.id} value={mtb.id}>
                     {mtb.name}
-                    {' '}
-                    -
+                    {' - '}
                     {mtb.model}
                   </option>
                 ))}
@@ -122,6 +127,11 @@ const AddReservationForm = ({ onAddReservation }) => {
 
 AddReservationForm.propTypes = {
   onAddReservation: PropTypes.func.isRequired,
+  defaultMotorbikeId: PropTypes.string,
+};
+
+AddReservationForm.defaultProps = {
+  defaultMotorbikeId: 0,
 };
 
 export default AddReservationForm;
