@@ -67,8 +67,8 @@ const Details = () => {
                 </tr>
               </table>
               <Link to={`/reservations/new/${mbk[0].id}`} className="btn-lg active">
-  Reserve
-</Link>
+                Reserve
+              </Link>
 
             </div>
           </>

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addMotorbike } from '../redux/motorbikes/motorbikeSlice';
@@ -10,7 +9,6 @@ const AddMotorbike = () => {
 
   const handleAddMotorbike = (motorbikeData) => {
     dispatch(addMotorbike(motorbikeData));
-    ///axios.post('/api/v1/motorbikes', motorbikeData);
   };
 
   return (
