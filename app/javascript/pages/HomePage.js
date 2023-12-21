@@ -5,10 +5,6 @@ import {
 } from 'react-router-dom';
 import { getMotorbikes } from '../redux/motorbikes/motorbikeSlice';
 import Navigation from '../components/Navigation';
-import loading from '../../assets/images/loading.gif';
-import facebook from '../../assets/images/facebook.png';
-import twitter from '../../assets/images/twitter.png';
-import instagram from '../../assets/images/instagram.png';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -34,7 +30,7 @@ const Home = () => {
   if (isLoading) {
     return (
       <div className="loadingPage">
-        <img src={loading} alt="" />
+        <img src="https://www.sellanybike.com/front-assets/images/333.gif" alt="" />
       </div>
     );
   }
@@ -88,9 +84,9 @@ const Home = () => {
                     </p>
                   </div>
                   <div className="media_handle">
-                    <img src={twitter} alt="" />
-                    <img src={facebook} alt="" />
-                    <img src={instagram} alt="" />
+                    <img src="https://cdn-icons-png.flaticon.com/256/20/20837.png" alt="" />
+                    <img src="https://freeiconshop.com/wp-content/uploads/edd/twitter-solid.png" alt="" />
+                    <img src="https://static-00.iconduck.com/assets.00/logo-github-icon-256x256-6fb8e1xp.png" alt="" />
                   </div>
                 </Link>
               ))}

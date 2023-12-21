@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import loading from '../../assets/images/loading.gif';
 
 const AddMotorbikeForm = ({ onAddMotorbike }) => {
   const [formData, setFormData] = useState({
@@ -123,7 +122,7 @@ const AddMotorbikeForm = ({ onAddMotorbike }) => {
         </form>
       </div>
       <div>
-        {formData.image ? (<img src={formData.image} alt="" />) : (<img src={loading} alt="loading" />)}
+        {formData.image ? (<img src={formData.image} alt="" />) : (<img src="https://www.sellanybike.com/front-assets/images/333.gif" alt="" />)}
         {formData.name && (
         <p>
           <strong>Name:</strong>

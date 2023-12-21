@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import { getReservations } from '../redux/reservation/reservationSlice';
-import loading from '../../assets/images/loading.gif';
 
 const Reservation = () => {
   const dispatch = useDispatch();
@@ -16,7 +15,7 @@ const Reservation = () => {
   if (isLoading) {
     return (
       <div className="loadingPage">
-        <img src={loading} alt="" />
+        <img src="https://www.sellanybike.com/front-assets/images/333.gif" alt="" />
       </div>
     );
   }
