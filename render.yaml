@@ -1,0 +1,18 @@
+databases:
+  - name: bike_appointment
+    databaseName: bike_appointment
+    user: bike_appointment_user
+
+services:
+  - type: web
+    name: BudgetApp
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: bike_appointment
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
