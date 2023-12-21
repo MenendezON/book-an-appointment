@@ -13,6 +13,7 @@
 - [🛠 Built With ](#-built-with-)
   - [📌 Tech Stack ](#-tech-stack-)
 - [🎲 Key Features ](#-key-features-)
+- [ Kanban board ](#-kanban-board-)
 - [🚀 Live Demo](#-live-demo-)
 - [💻 Getting Started ](#-getting-started-)
   - [Prerequisites](#prerequisites)
@@ -54,6 +55,15 @@
 - Book a Motorbike 
 - Add a Motorbike
 - Delete a Motorbike 
+
+
+# 🚀 Kanba board <a name="kanban-board"></a>
+
+👉 [Final capstone group project](https://github.com/MenendezON/book-an-appointment/projects/1)
+
+This project has been built by a team of four members
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # 🚀 Live Demo <a name="live-demo"></a>
 
@@ -108,11 +118,10 @@ In the project directory, to launch the project, you can run:
 
 ### `rails server`
 
-** Run tests **
 To run tests, run the following command:
 
 ```sh
-rspec spec/request
+rspec
 
 ``````
 
