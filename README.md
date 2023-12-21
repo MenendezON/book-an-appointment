@@ -60,7 +60,7 @@
 # 🚀 Kanba board <a name="kanban-board"></a>
 
 👉 [Final capstone group project](https://github.com/MenendezON/book-an-appointment/projects/1)
-
+👉 [Kanban board screenshot](https://github.com/MenendezON/book-an-appointment/blob/main/screenshot-kanban-board.png)
 This project has been built by a team of four members
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
