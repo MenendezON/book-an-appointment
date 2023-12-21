@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/images/motorcycle-logo.png';
-import twitter from '../assets/images/twitter.png';
-import facebook from '../assets/images/facebook.png';
-import github from '../assets/images/github.png';
-import pinterest from '../assets/images/pinterest.png';
-import googleplus from '../assets/images/googleplus.png';
+import logo from '../../assets/images/motorcycle-logo.png';
+import twitter from '../../assets/images/twitter.png';
+import facebook from '../../assets/images/facebook.png';
+import github from '../../assets/images/github.png';
+import pinterest from '../../assets/images/pinterest.png';
+import googleplus from '../../assets/images/googleplus.png';
 import '../assets/css/style.css';
 
 function Navigation() {

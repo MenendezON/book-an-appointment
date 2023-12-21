@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import loading from '../assets/images/loading.gif';
+import loading from '../../assets/images/loading.gif';
 
 const AddMotorbikeForm = ({ onAddMotorbike }) => {
   const [formData, setFormData] = useState({

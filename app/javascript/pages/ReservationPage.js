@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import { getReservations } from '../redux/reservation/reservationSlice';
-import loading from '../assets/images/loading.gif';
+import loading from '../../assets/images/loading.gif';
 
 const Reservation = () => {
   const dispatch = useDispatch();

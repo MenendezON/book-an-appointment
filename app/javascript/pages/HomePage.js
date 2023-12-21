@@ -5,10 +5,10 @@ import {
 } from 'react-router-dom';
 import { getMotorbikes } from '../redux/motorbikes/motorbikeSlice';
 import Navigation from '../components/Navigation';
-import loading from '../assets/images/loading.gif';
-import facebook from '../assets/images/facebook.png';
-import twitter from '../assets/images/twitter.png';
-import instagram from '../assets/images/instagram.png';
+import loading from '../../assets/images/loading.gif';
+import facebook from '../../assets/images/facebook.png';
+import twitter from '../../assets/images/twitter.png';
+import instagram from '../../assets/images/instagram.png';
 
 const Home = () => {
   const dispatch = useDispatch();
