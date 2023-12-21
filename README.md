@@ -1,7 +1,10 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h1><b> Motorcycle appointment </b></h1>
+  <h1>
+    <b> Motorcycle appointment </b>
+  </h1>
+  <img src="https://seeklogo.com/images/M/motorcycle-logo-0A99FC1E6E-seeklogo.com.png" alt="Logo of your project" />
 </div>
 
 <!-- TABLE OF CONTENTS -->
