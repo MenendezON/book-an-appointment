@@ -2,13 +2,15 @@ databases:
   - name: bike_appointment
     databaseName: bike_appointment
     user: bike_appointment_user
+    plan: free
 
 services:
   - type: web
     name: BudgetApp
     runtime: ruby
+    plan: free
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    startCommand: "./bin/rails server"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -16,3 +18,5 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+      - key: WEB_CONCURRENCY
+        value: 2 # sensible default
