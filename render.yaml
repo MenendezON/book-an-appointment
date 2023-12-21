@@ -6,7 +6,7 @@ databases:
 
 services:
   - type: web
-    name: BudgetApp
+    name: Motorcycle appointment
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
